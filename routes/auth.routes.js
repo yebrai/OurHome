@@ -13,3 +13,6 @@ router.get("/signup", (req, res, next) => {
 router.get("/login", (req, res, next) => {
     res.render("auth/login.hbs")
 })
+
+// POST /auth/login - render to user login
+router.post("/")
