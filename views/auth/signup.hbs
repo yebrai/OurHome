@@ -21,17 +21,22 @@
     <input type="text" name="email" />
 
     <br />
+    <label for="phone">Phone:</label>
+    <input type="number" name="phone" />
+
+    <br />
     <label for="password">Password:</label>
     <input type="password" name="password" />
 
     <br />
-    <label for="password">Confirm Password:</label>
-    <input type="password" name="password" />
+    <label for="passwordConfirmation">Confirm Password:</label>
+    <input type="password" name="passwordConfirmation" />
     <br>
 
 
     <a href="">¿Dont remember your password?</a>
     <br>
+    <p>{{errorMessage}}</p>
 
     <button>Register</button>
   </form>
