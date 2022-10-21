@@ -11,11 +11,14 @@
 
    <body>
       <nav>
-         <a href="/">Home</a>
-         <a href="/auth/signup">Sign up</a>
-         <a href="/auth/login">Log in</a>
-         {{!-- if user is on --}}
+         {{#if userActive}}
+         <a href="/profile">Ver Perfil</a>
          <a href="/auth/logout">Close sesion</a>
+         {{else}}
+         <a href="/">Home</a>
+         <a href="/auth/login">Log in</a>
+         <a href="/auth/signup">Sign up</a>
+         {{/if}}
       </nav>
 
       {{{body}}}

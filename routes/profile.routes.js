@@ -1,8 +1,10 @@
 const express = require ('express');
+const { isLoggedIn, isAdmin } = require('../middlewares/auth');
 const User = require('../models/User.model');
 const router = express.Router();
 
-router.get('/', (req,res,next) => {
+
+router.get('/', isLoggedIn, (req,res,next) => {
     User.findById(req.session.userOnline._id)
     .then((response) => {
         res.render('profile/my-profile.hbs', {
