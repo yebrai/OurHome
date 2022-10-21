@@ -20,25 +20,27 @@ const propertySchema = new Schema(
       enum: ["sale', 'rent"],
       default: "sale",
     },
-    listedBy: {
+    style: {
       type: String,
-      enum: ["user', 'professional"],
-      default: "user",
+      enum: ['garaje', 'chalet', 'apart'],
+      default: "apart",
     },
-    postedOn: Number,
     amenities: [
       {
         type: String,
         enum: ["Security", "Balcony", "Central A/C & Heating"],
       },
     ],
-    updated: Number,
-    owner: [
-      {
+    owner: {
         type: Schema.Types.ObjectId,
         ref: "User",
       },
-    ],
+    professional: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Professional",
+      }
+    ]
   },
   {
     timestamps: true,

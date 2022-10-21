@@ -26,6 +26,7 @@ const userSchema = new Schema(
     },
     passwordConfirmation: {
       type: String,
+      required: true
     },
     phone: {
       type: Number,
