@@ -21,6 +21,9 @@ const professionalSchema = new Schema(
       trim: true,
       required: true,
     },
+    passwordConfirmation: {
+      type: String,
+    },
     phone: Number,
     img: String,
     properties: [
