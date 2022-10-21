@@ -4,8 +4,17 @@
 
   <form action="/auth/signup" method="POST">
 
-    <label for="username">Username:</label>
-    <input type="text" name="username" />
+    <label for="name">Name:</label>
+    <input type="text" name="name" />
+    
+    <select name="type" id="">
+        <option value="">Individual</option>
+        <option value="">Professional</option>
+    </select>
+    <br>
+
+    <label for="surname">Surname:</label>
+    <input type="text" name="surname" />
 
     <br />
     <label for="email">Email:</label>
@@ -18,12 +27,11 @@
     <br />
     <label for="password">Confirm Password:</label>
     <input type="password" name="password" />
+    <br>
 
-    <br />
-    <label for="profile-picture">Profile pic</label>
-    <input type="file" name="">
 
     <a href="">¿Dont remember your password?</a>
+    <br>
 
     <button>Register</button>
   </form>
