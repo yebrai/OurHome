@@ -9,6 +9,10 @@ const userSchema = new Schema(
       required: false,
       unique: true
     },
+    surname: {
+      type: String,
+      required: true,
+    },
     email: {
       type: String,
       required: true,
@@ -19,10 +23,26 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true
-    }
+    },
+    passwordConfirmation: {
+      type: String,
+    },
+    phone: {
+      type: Number,
+      required: true
+    },
+    img: {
+      type: String
+    },
+    role: {
+      type: String,
+      enum: ["user", "admin", "moderators"],
+      default: "user"
+    },
+    properties:[{}]
   },
-  {
-    // this second object adds extra properties: `createdAt` and `updatedAt`    
+      {
+    
     timestamps: true
   }
 );
