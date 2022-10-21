@@ -23,7 +23,7 @@ router.get("/login", (req, res, next) => {
 })
 
 // POST /auth/login - render to user login
-router.post("/auth/login", async (req, res, next) => {
+router.post("/login", async (req, res, next) => {
    const { email, password } = req.body
 
     //1. Backend validations
