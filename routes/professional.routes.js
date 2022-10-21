@@ -5,15 +5,19 @@ const { isLoggedIn, isAdmin } = require('../middlewares/auth');
 
 
 
+router.get("/", (req, res, next) => {
+    res.render("professional/profile.hbs")
+})
 
 // GET "/professional/signup"
 router.get("/signup", (req, res, next) => {
-    res.render("professional/signup.hbs")
+    res.render("auth/signup-professional.hbs")
 })
 
 router.get("/login", (req, res, next) => {
-    res.render("professional/login.hbs")
+    res.render("auth/login-professional.hbs")
 })
+
 
 
 //POST "/professional/login"
@@ -21,7 +25,7 @@ router.post("/login", async (req, res, next) => {
     const { cif, password } = req.body
 
     if (cif === "" || password === "") {
-        res.render("professional/login.hbs", {
+        res.render("auth/login-professional.hbs", {
           errorMessage: "All fields must be completed",
         });
         return;
@@ -29,7 +33,7 @@ router.post("/login", async (req, res, next) => {
     try {
         const foundProfessional = await Professional.findOne({cif});
         if (foundProfessional === null) {
-          res.render("professional/login.hbs", {
+          res.render("auth/login-professional.hbs", {
             errorMessage: "incorrect email address or password",
           });
           return;
@@ -38,7 +42,7 @@ router.post("/login", async (req, res, next) => {
         const isPasswordValid = await bcrypt.compare(password, foundProfessional.password);
         console.log("isPasswordValid", isPasswordValid);
         if (!isPasswordValid) {
-          res.render("professional/login.hbs", {
+          res.render("auth/login-professional.hbs", {
             errorMessage: "incorrect email address or password",
           });
           return;
@@ -70,7 +74,7 @@ router.post("/signup", async (req, res, next) => {
       password === "" ||
       passwordConfirmation === ""
     ) {
-      res.render("professional/signup.hbs", {
+      res.render("auth/signup-professional.hbs", {
         errorMessage: "Introducir caracteres",
       });
       return;
@@ -78,14 +82,14 @@ router.post("/signup", async (req, res, next) => {
     // 2. Password validation.
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/gm;
     if (passwordRegex.test(password) === false) {
-      res.render("professional/signup.hbs", {
+      res.render("auth/signup-professional.hbs", {
         errorMessage: "Introducir caracteres validos",
       });
       return;
     }
     // 2.1 Password confirmation.
     if (passwordConfirmation !== password) {
-      res.render("professional/signup.hbs", {
+      res.render("auth/signup-professional.hbs", {
         errorMessage: "the password confirmation must be same than password",
       });
       return;
@@ -94,7 +98,7 @@ router.post("/signup", async (req, res, next) => {
     try {
       const foundProfessional = await Professional.findOne({ name: name });
       if (foundProfessional !== null) {
-        res.render("professional/signup.hbs", {
+        res.render("auth/signup-professional.hbs", {
           errorMessage: "El usuario ingresado ya existe con su nombre",
         });
         return;
@@ -112,7 +116,7 @@ router.post("/signup", async (req, res, next) => {
       
       await Professional.create(newProfessional);
       console.log(req.body);
-      res.redirect("/professional/login");
+      res.redirect("/auth/login-professional");
     } catch (error) {
       next(error);
     }

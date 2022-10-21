@@ -1,7 +1,7 @@
 <div>
 
     <h3>Login form</h3>
-      <form action="/auth/login" method="POST">
+      <form action="/professional/login" method="POST">
 
     <label for="cif">CIF:</label>
     <input type="text" name="cif" />
@@ -9,7 +9,7 @@
     <label for="password">Password:</label>
     <input type="password" name="password" />
     <br />
-
+   <p>{{errorMessage}}</p>
     <button>Submit</button>
 
   </form>

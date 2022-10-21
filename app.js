@@ -33,7 +33,17 @@ app.use((req, res, next)=> {
         res.locals.isUserActive = false
      }
      next()
-    
+    })
+
+    app.use((req, res, next)=> {
+        if(req.session.professionalOnline) {
+        // user on
+        res.locals.isProfessionalActive = true
+     } else {
+        // user of
+        res.locals.isProfessionalActive = false
+     }
+     next()
     })
 
 // 👇 Start handling routes here

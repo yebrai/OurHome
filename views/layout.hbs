@@ -20,6 +20,13 @@
          <a href="/auth/login">Log in</a>
          <a href="/auth/signup">Sign up</a>
          {{/if}}
+
+        {{#if isProfessionalActive}}
+         <a href="/profile">Profile</a>
+         <a href="/profile/list">Houses</a>
+         <a href="/auth/logout">Close</a>
+         {{/if}}
+
       </nav>
 
       {{{body}}}
