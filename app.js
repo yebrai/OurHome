@@ -24,6 +24,19 @@ const projectName = "OurHome";
 
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 
+app.use((req, res, next)=> {
+    // el middle crea una variable para HBS qe nos ayuda a saber si el usuario esta logeado o no
+        if( req.session.activeUser === undefined) {
+        // el usuario no esta activo
+        res.locals.isUserActive = false
+     } else {
+        // el usuario si esta activo
+        res.locals.isUserActive = true
+     }
+     next()
+    
+    })
+
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);
