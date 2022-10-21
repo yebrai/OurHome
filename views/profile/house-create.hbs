@@ -1,0 +1,70 @@
+<div>
+
+  <h2>Post your Property!</h2>
+
+  <form action="/profile/create" method="POST">
+
+    <label for="name">Name:</label>
+    <input type="text" name="name" />
+    <br />
+
+    <label for="surname">Location:</label>
+    <input type="text" name="surname" />
+
+    <br />
+    <label for="email">M2:</label>
+    <input type="text" name="email" />
+
+    <br />
+    <label for="phone">Images:</label>
+    <input type="number" name="phone" />
+
+    <br />
+    <label for="password">Price:</label>
+    <input type="password" name="password" />
+
+    <br />
+    <label for="password">For:</label>
+    <input type="password" name="password" />
+
+    <br />
+    <label for="password">Style:</label>
+    <input type="password" name="password" />
+
+    <br />
+    <div>
+      <h3>Amenities</h3>
+      <ul>
+        <li>
+          <label for="security">Security</label>
+          <input type="checkbox" name="security"/>
+        </li>
+        <li>
+          <label for="balcony">Balcony:</label>
+          <input type="checkbox" name="balcony" />
+        </li>
+        <li>
+          <label for="a/c">Central A/C & Heating:</label>
+          <input type="checkbox" name="a/c"/>
+        </li>
+      </ul>
+    </div>
+
+    <br />
+    <label for="passwordConfirmation">Owner:</label>
+    <input type="text" name="passwordConfirmation" />
+
+    <br />
+    <label for="password">Professional:</label>
+    <input type="password" name="password" />
+
+    <br />
+
+    <a href="">¿Dont remember your password?</a>
+    <br />
+    <p>{{errorMessage}}</p>
+
+    <button>Post!</button>
+  </form>
+
+</div>

@@ -16,4 +16,8 @@ router.get('/', isLoggedIn, (req,res,next) => {
     })
 })
 
+router.get('/create', isLoggedIn, (req,res,next) => {
+    res.render ('profile/house-create.hbs')
+})
+
 module.exports = router;
