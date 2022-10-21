@@ -16,4 +16,9 @@ router.get('/', isLoggedIn, (req,res,next) => {
     })
 })
 
+// GET /profile/list - render to user signup
+router.get("/list", (req, res, next) => {
+    res.render("profile/list.hbs");
+  });
+
 module.exports = router;
