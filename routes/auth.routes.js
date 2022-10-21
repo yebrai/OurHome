@@ -21,4 +21,7 @@ router.get("/login", (req, res, next) => {
 })
 
 // POST /auth/login - render to user login
-router.post("/")
+router.post("/auth/login", (req, res, next) => {
+   
+
+})
