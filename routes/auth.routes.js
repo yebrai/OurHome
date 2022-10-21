@@ -81,7 +81,7 @@ router.post("/login", async (req, res, next) => {
   //1.1 Fields completed
   if (email === "" || password === "") {
     res.render("auth/login.hbs", {
-      errorMessage: "usuario ya creado con ese nombre",
+      errorMessage: "All fields must be completed",
     });
     return;
   }
@@ -112,7 +112,7 @@ router.post("/login", async (req, res, next) => {
 
     req.session.save(() => {
       // 4. redirects to private page
-      res.redirect("/");
+      res.redirect("/profile/list");
     });
   } catch (error) {
     next(error);
