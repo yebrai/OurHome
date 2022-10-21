@@ -1,5 +1,5 @@
 const isLoggedIn = (req,res,next) => {
-    if (req.session.userOnline === undefined){
+    if (!req.session.userOnline){
         res.redirect('/auth/login')
     }else{
         next()
@@ -7,7 +7,7 @@ const isLoggedIn = (req,res,next) => {
 }
 
 const isAdmin = (req,res,next) => {
-    if (req.session.userOnline === undefined || req.session.userOnline !== 'admin' ){
+    if (!req.session.userOnline || req.session.userOnline !== 'admin' ){
         res.redirect('/auth/login')
     }else{
         next()
