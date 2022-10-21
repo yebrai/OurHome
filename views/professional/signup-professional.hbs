@@ -2,23 +2,18 @@
 
     <h2>Account Creation</h2>
 
-  <form action="/auth/signup" method="POST">
+  <form action="/professional/signup-professional" method="POST">
 
     <label for="name">Name:</label>
     <input type="text" name="name" />
-    
-    <select name="type" id="">
-        <option value="">Individual</option>
-        <option value="professional/professional.hbs">Professional</option>
-    </select>
     <br>
 
-    <label for="surname">Surname:</label>
-    <input type="text" name="surname" />
+    <label for="cif">Cif:</label>
+    <input type="text" name="cif" />
 
     <br />
     <label for="email">Email:</label>
-    <input type="text" name="email" />
+    <input type="email" name="email" />
 
     <br />
     <label for="phone">Phone:</label>
@@ -27,12 +22,6 @@
     <br />
     <label for="password">Password:</label>
     <input type="password" name="password" />
-
-    <br />
-    <label for="passwordConfirmation">Confirm Password:</label>
-    <input type="password" name="passwordConfirmation" />
-    <br>
-
 
     <a href="">¿Dont remember your password?</a>
     <br>
