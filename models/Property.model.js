@@ -17,7 +17,7 @@ const propertySchema = new Schema(
     },
     apartmentFor: {
       type: String,
-      enum: ["sale', 'rent"],
+      enum: ["sale", "rent"],
       default: "sale",
     },
     style: {
