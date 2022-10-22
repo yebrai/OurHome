@@ -11,11 +11,7 @@ router.use('/auth', authRoutes);
 const profileRoutes = require ('./profile.routes.js');
 router.use('/profile', profileRoutes);
 
-const authProfessionalRoutes = require ('./auth.professional.routes.js');
-router.use('/auth-professional', authProfessionalRoutes);
-
-const ProfessionalRoutes = require ('./professional.routes.js');
-router.use('/professional', ProfessionalRoutes);
-
+const professionalRoutes = require ('./professional.routes.js');
+router.use('/professional', professionalRoutes);
 
 module.exports = router;
