@@ -25,9 +25,10 @@ const projectName = "OurHome";
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 
 app.use((req, res, next) => {
-  if (req.session.userOnline || req.session.professionalOnline) {
+  if (req.session.userOnline) {
     // user on
     res.locals.isUserActive = true;
+    
   } else {
     // user of
     res.locals.isUserActive = false;
