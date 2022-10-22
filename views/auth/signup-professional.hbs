@@ -5,13 +5,13 @@
 
     <h2>Account Creation</h2>
 
-    <form action="/professional/signup" method="POST">
+    <form action="/auth-professional/signup" method="POST">
 
       <label for="name">Name:</label>
       <input type="text" name="name" />
 
       <select name="links" size="1" onchange="window.location.href=this.value">
-        <option value="/professional/signup">Professional</option>
+        <option value="/auth-professional/signup">Professional</option>
         <option value="/auth/signup">Individual</option>
       </select>
 
