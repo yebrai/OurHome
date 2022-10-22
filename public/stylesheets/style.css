@@ -1,12 +1,100 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+:root {
+  --backgroud-blue: #260ea9;
+  --background-softblue: #e7f5ff;
+  --grey: #bababa;
+  --off-white: #faf8f7;
+  }
 
-a {
-  color: #00b7ff;
+html {
+  font-family: 'Open Sans','Open Sans-fallback',sans-serif;
+  box-sizing: border-box;
+  background-color: var(--background-softblue);
+
 }
 
 h1 {
   color: 15px;
 }
+
+#nav-home {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--background-softblue);
+  color: black;
+  height: 5vh;
+  font-family: Open Sans,Helvetica,sans-serif;  background-color: var(--background-softblue);
+
+}
+
+.acces-nav {
+  display: flex;
+}
+
+#nav-home a {
+  text-decoration: none;
+  color: black;
+  margin: 10px 25px 10px 25px;
+
+}
+
+/* index */
+#index-section {
+  background-image: url('/images/index-background2.jpg');
+  background-position: top;
+  background-size: cover;
+  height: 70vh;
+}
+
+#index-section h1{
+  color: var(--background-softblue);
+  font-size: 5rem;
+  padding: 100px 0 0 100px;
+}
+
+#index-input-container {
+  background-color: var(--backgroud-blue);
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  color: var(--background-softblue);
+}
+
+#signup-type-user {
+  width: 50vh;
+  display: flex;
+  align-items: center;
+}
+
+.searchers-index {
+  display: flex;
+  flex-direction: column;
+}
+
+#index-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  color: var(--backgroud-blue);
+  background-color: var(--background-softblue);
+  padding: 20px;
+}
+
+#index-footer li {
+  list-style: none;
+}
+
+#index-footer a {
+  text-decoration: none;
+  color: var(--backgroud-blue);
+}
+
+#container-developers {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+

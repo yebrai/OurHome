@@ -1,0 +1,19 @@
+#index-section {
+    background-image: url('/images/index-background2.jpg');
+    background-position: top;
+    background-size: cover;
+    height: 40vh;
+    height: 45vh;
+  }
+  
+  #index-section h1{
+    position: absolute;
+    color: aliceblue;
+  }
+  
+  #index-input-container {
+    background-color: #00b7ff;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+  }
