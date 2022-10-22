@@ -6,12 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{appTitle}}</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    {{!-- <link rel="stylesheet" href="/stylesheets/{{style}}" /> --}}
   </head>
 
   <body>
     <nav id="nav-home">
       {{#if isUserActive}}
-        <a href="/profile">Profile</a>
+        {{#if isProfessionalActive}}
+          <a href="/professional/profile">Profile</a>
+        {{else}}
+          <a href="/profile">Profile</a>
+        {{/if}}
         <a href="/profile/list">Houses</a>
         <a href="/auth/logout">Close</a>
       {{else}}
@@ -21,11 +26,12 @@
           <a href="/auth/signup">Sign up</a>
         </div>
       {{/if}}
-        {{!-- {{#if isProfessionalActive}}
-          <a href="/profile">Profile</a>
-          <a href="/profile/list">Houses</a>
-          <a href="/auth/logout">Close</a>
-        {{/if}} --}}
+      {{!-- 
+        {{#if isProfessionalActive}}
+         <a href="/professional/profile">Profile</a>
+         <a href="/profile/list">Houses</a>
+         <a href="/auth/logout">Close</a>
+         {{/if}} --}}
     </nav>
 
     {{{body}}}
