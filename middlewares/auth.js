@@ -14,7 +14,16 @@ const isAdmin = (req,res,next) => {
     }
 }
 
+const isProfessional = (req,res,next) => {
+    if(!req.session.professionalOnline ){
+        res.redirect('/auth/login-professional')
+    }else{
+        next()
+    }
+}
+
 module.exports = {
     isLoggedIn,
-    isAdmin
+    isAdmin,
+    isProfessional
 }
