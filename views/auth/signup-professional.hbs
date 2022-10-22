@@ -9,7 +9,11 @@
 
       <label for="name">Name:</label>
       <input type="text" name="name" />
-             <a href="/auth/signup"> <option>Are you particular?</option></a>
+
+      <select name="links" size="1" onchange="window.location.href=this.value">
+        <option value="/professional/signup">Professional</option>
+        <option value="/auth/signup">Individual</option>
+      </select>
 
       <br />
 

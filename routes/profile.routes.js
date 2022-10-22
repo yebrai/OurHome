@@ -22,7 +22,7 @@ router.get('/create', isLoggedIn, (req,res,next) => {
 })
 
 // GET /profile/list - render to user signup
-router.get("/list", (req, res, next) => {
+router.get("/list", isLoggedIn, (req, res, next) => {
     res.render("profile/list.hbs");
   });
 

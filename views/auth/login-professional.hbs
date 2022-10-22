@@ -1,15 +1,18 @@
 <div>
 
-    <h3>Login form</h3>
-      <form action="/professional/login" method="POST">
-
+  <h3>Login form</h3>
+  <form action="/professional/login" method="POST">
     <label for="cif">CIF:</label>
     <input type="text" name="cif" />
+    <select name="links" size="1" onchange="window.location.href=this.value">
+      <option value="/professional/login">Professional</option>
+      <option value="/auth/login">Individual</option>
+    </select>
     <br />
     <label for="password">Password:</label>
     <input type="password" name="password" />
     <br />
-   <p>{{errorMessage}}</p>
+    <p>{{errorMessage}}</p>
     <button>Submit</button>
 
   </form>
