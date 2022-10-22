@@ -16,7 +16,7 @@ router.get('/profile', isProfessional,(req,res,next) => {
 })
 
 
-// GET /profile/list - render to user signup
+// GET /professional/list - render to user signup
 router.get("/list", isProfessional, (req, res, next) => {
     res.render("professional/list.hbs");
   });

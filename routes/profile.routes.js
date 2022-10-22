@@ -2,8 +2,9 @@ const router = require("express").Router();
 const { isLoggedIn, isAdmin, isProfessional } = require("../middlewares/auth");
 const User = require("../models/User.model");
 
+
 //GET "/Profile"
-router.get("/", (req, res, next) => {
+router.get("/", isLoggedIn, (req, res, next) => {
   User.findById(req.session.userOnline._id)
     .then((response) => {
       res.render("profile/my-profile.hbs", {
