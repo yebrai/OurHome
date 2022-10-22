@@ -12,3 +12,5 @@ Property
 .catch((err) => {
   console.log(err)
 })
+
+//Arrancar con: node .\seeds\seed-script.js
