@@ -1,0 +1,22 @@
+[
+  {
+    "name": "sevilla house",
+    "location": "sevilla",
+    "m2": 75,
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZIdhkf3xySh8I-sjC2BaWadz2FQZU_fn8MQ&usqp=CAU",
+    "price": 100000.0,
+    "apartmentFor": "sale",
+    "style": "apart",
+    "amenities": []
+  },
+  {
+    "name": "dubai house",
+    "location": "dubai",
+    "m2": 105,
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZIdhkf3xySh8I-sjC2BaWadz2FQZU_fn8MQ&usqp=CAU",
+    "price": 100000000,
+    "apartmentFor": "sale",
+    "style": "apart",
+    "amenities": []
+  }
+]
