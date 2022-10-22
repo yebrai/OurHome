@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{appTitle}}</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    {{!-- <link rel="stylesheet" href="/stylesheets/{{style}}" /> --}}
   </head>
 
   <body>
@@ -15,11 +14,6 @@
         <a href="/profile">Profile</a>
         <a href="/profile/list">Houses</a>
         <a href="/auth/logout">Close</a>
-        {{#if isProfessionalActive}}
-          <a href="/profile">Profile</a>
-          <a href="/profile/list">Houses</a>
-          <a href="/auth/logout">Close</a>
-        {{/if}}
       {{else}}
         <a href="/">Home</a>
         <div class="acces-nav">
@@ -27,6 +21,11 @@
           <a href="/auth/signup">Sign up</a>
         </div>
       {{/if}}
+        {{!-- {{#if isProfessionalActive}}
+          <a href="/profile">Profile</a>
+          <a href="/profile/list">Houses</a>
+          <a href="/auth/logout">Close</a>
+        {{/if}} --}}
 
     </nav>
 

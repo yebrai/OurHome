@@ -1,5 +1,5 @@
 const router = require ('express').Router()
-const { isLoggedIn, isAdmin } = require('../middlewares/auth');
+const { isLoggedIn, isAdmin, isProfessional } = require('../middlewares/auth');
 const User = require('../models/User.model');
 
 
