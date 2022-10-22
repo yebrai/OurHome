@@ -24,28 +24,27 @@ const projectName = "OurHome";
 
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 
-app.use((req, res, next) => {
-  if (req.session.userOnline) {
-    // user on
-    res.locals.isUserActive = true;
-    
-  } else {
-    // user of
-    res.locals.isUserActive = false;
-  }
-  next();
-});
+app.use((req, res, next)=> {
+        if(req.session.userOnline || req.session.professionalOnline) {
+        // user on
+        res.locals.isUserActive = true
+     } else {
+        // user of
+        res.locals.isUserActive = false
+     }
+     next()
+    })
 
-// app.use((req, res, next) => {
-//   if (req.session.professionalOnline) {
-//     // user on
-//     res.locals.isProfessionalActive = true;
-//   } else {
-//     // user of
-//     res.locals.isProfessionalActive = false;
-//   }
-//   next();
-// });
+    app.use((req, res, next)=> {
+        if(req.session.professionalOnline) {
+        // user on
+        res.locals.isProfessionalActive = true
+     } else {
+        // user of
+        res.locals.isProfessionalActive = false
+     }
+     next()
+    })
 
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
