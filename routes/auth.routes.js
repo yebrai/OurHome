@@ -21,7 +21,7 @@ router.post("/signup", async (req, res, next) => {
     passwordConfirmation === ""
   ) {
     res.render("auth/signup.hbs", {
-      errorMessage: "Introducir caracteres",
+      errorMessage: "Introducir caracteres"
     });
     return;
   }
@@ -29,7 +29,7 @@ router.post("/signup", async (req, res, next) => {
   const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm;
   if (passwordRegex.test(password) === false) {
     res.render("auth/signup.hbs", {
-      errorMessage: "Introducir caracteres validos",
+      errorMessage: "Introducir caracteres validos"
     });
     return;
   }
@@ -112,12 +112,13 @@ router.post("/login", async (req, res, next) => {
 
     req.session.save(() => {
       // 4. redirects to private page
-      res.redirect("/profile/list");
+      res.redirect("/property/list");
     });
   } catch (error) {
     next(error);
   }
 });
+
 
 router.get("/logout", (req, res, next) => {
   req.session.destroy(() => {

@@ -1,0 +1,26 @@
+<h3>detalles de viviendas</h3>
+
+<div>
+
+  {{#with details}}
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col">
+        <div class="card">
+          <img src="{{img}}" class="card-img-top" alt="img-property" />
+          <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p class="card-text">Location: {{location}}.</p>
+            <p class="card-text">Price: $ {{price}}.-</p>
+            <p class="card-text">Property for {{apartmentFor}}.</p>
+            <div>
+              <a href="#" class="btn btn-outline-info">Edit</a>
+              <a href="#" class="btn btn-primary">Add Favourites</a>
+              <a href="#" class="btn btn-secondary">Contact Owner</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {{/with}}
+</div>

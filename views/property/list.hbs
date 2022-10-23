@@ -1,6 +1,6 @@
 <div>
-  <a href="/profile/create">Add house</a>
-  <a href="">Favourites</a>
+  <a href="/property/create">Add house</a>
+  <a href="/property/favourite">Favourites</a>
 
   <h1>List of houses</h1>
 </div>
@@ -30,9 +30,12 @@
           <p class="card-text">Location: {{this.location}}.</p>
           <p class="card-text">Price: $ {{this.price}}.-</p>
           <p class="card-text">Property for {{this.apartmentFor}}.</p>
-          <a href="#" class="btn btn-outline-info">More details!</a>
-          <a href="#" class="btn btn-primary">Add Favourites</a>
-          
+
+          <a href="/property/details/{{this._id}}" class="btn btn-outline-info">More details!</a>
+          <form action="/property/{{this._id}}/favourite" method="post">
+            <a href="#" class="btn btn-primary">Add Favourites</a>
+          </form>
+
         </div>
       </div>
     </div>
