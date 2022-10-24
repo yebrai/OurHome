@@ -69,9 +69,10 @@ router.get("/list", isLoggedIn, async (req, res, next) => {
 // GET '/property/details/:id' - render property-details
 router.get('/details/:propertyId', isLoggedIn, (req,res,next) => {
     const {propertyId} = req.params
-
+    
     Property.findById(propertyId)
     .then((details) => {
+      console.log(details);
       // console.log(details);
       res.render('property/details.hbs',{
         details
@@ -146,17 +147,6 @@ router.post('/delete/:propertyId', isLoggedIn, (req,res,next) => {
   .catch((err) => {
     next(err)
   })
-})
-
-// GET '/property/favourite/'
-router.get('/favourite', isLoggedIn, async (req,res,next) => {
-  try {
-    // let favProperty = Property.
-    res.render('property/favourite-list.hbs')
-    
-  } catch (error) {
-    next(error)
-  }
 })
 
 

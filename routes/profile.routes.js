@@ -73,6 +73,18 @@ router.post("/delete/:profileId", isLoggedIn, (req, res, next) => {
   })
 });
 
+// GET '/property/favourite/'
+router.get('/favourites', isLoggedIn, async (req,res,next) => {
+  try {
+    // let favProperty = Property.
+    res.render('property/favourite-list.hbs')
+    
+  } catch (error) {
+    next(error)
+  }
+})
+
+
 
 
 module.exports = router;
