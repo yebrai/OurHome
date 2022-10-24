@@ -39,7 +39,9 @@ const userSchema = new Schema(
       enum: ["user", "admin", "moderators"],
       default: "user"
     },
-    properties:[{}]
+    properties:[{}],
+    favourite:[{}]
+
   },
       {
     
