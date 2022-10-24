@@ -66,6 +66,19 @@ router.get("/list", isLoggedIn, async (req, res, next) => {
     }
   });
 
+  router.post("/list", isLoggedIn, async (req, res, next) => {
+    try {
+      let listProperties = await Property.find();
+    //   console.log(listProperties);
+      res.render("property/list.hbs", {
+        listProperties,
+        
+      });
+    } catch (error) {
+      next(error);
+    }
+  });
+
 // GET '/property/details/:id' - render property-details
 router.get('/details/:propertyId', isLoggedIn, (req,res,next) => {
     const {propertyId} = req.params
