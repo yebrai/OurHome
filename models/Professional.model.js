@@ -32,6 +32,11 @@ const professionalSchema = new Schema(
         ref: "Property",
       },
     ],
+    role: {
+      type: String,
+      enum: ["user", "admin", "moderators"],
+      default: "user"
+    }
   },
   {
     timestamps: true,
