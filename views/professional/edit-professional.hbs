@@ -2,7 +2,7 @@
 
   <h2>Edit your Professional profile</h2>
   {{#with details}}
-    <form action="/professional/edit/{{_id}}" method="POST">
+    <form action="/professional/edit/{{_id}}" method="POST" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
         <input type="text" name="name" class="form-control" value="{{name}}" />
@@ -25,10 +25,11 @@
       </div>
 
       <div class="mb-3">
-        <label for="images" class="form-label">Image: </label>
+        <label for="professional-img" class="form-label">Image: </label>
         <input
           class="form-control"
           type="file"
+          name="professional-img"
           id="formFile"/>
       </div>
       <div class="mb-3">
