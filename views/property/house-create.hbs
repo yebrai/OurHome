@@ -56,16 +56,15 @@
         </ul>
       </div>
     </div>
-
+{{#each userList}}
+  {{!-- {{#with userList}} --}}
     <div class="mb-3">
-      <label for="passwordConfirmation" class="form-label">Owner:</label>
-      <input type="text" name="passwordConfirmation" class="form-control" />
+      <label for="owner" class="form-label">Owner: {{surname}} {{name}} </label>
     </div>
+  {{!-- {{/with}} --}}
+{{/each}}
 
-    <div class="mb-3">
-      <label for="password" class="form-label">Professional:</label>
-      <input type="password" name="password" class="form-control" />
-    </div>
+    
 
     <br />
     <p>{{errorMessage}}</p>
