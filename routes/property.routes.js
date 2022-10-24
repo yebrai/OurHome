@@ -2,6 +2,8 @@ const router = require("express").Router();
 const { isLoggedIn, isAdmin, isProfessional } = require("../middlewares/auth");
 const User = require("../models/User.model");
 const Property = require("../models/Property.model");
+const uploader = require ('../middlewares/cloudinary.js');
+const cloudinary = require("../middlewares/cloudinary.js")
 
 
 // GET /property/create - render to user create
@@ -10,12 +12,11 @@ router.get("/create", isLoggedIn, (req, res, next) => {
   });
 
 // POST /property/create - render to property create
-router.post("/create", isLoggedIn, async (req, res, next) => {
+router.post("/create", isLoggedIn, cloudinary.single("property-img"), async (req, res, next) => {
     const {
       name,
       location,
       m2,
-      img,
       apartmentFor,
       style,
       owner,
@@ -36,7 +37,7 @@ router.post("/create", isLoggedIn, async (req, res, next) => {
         name,
         location,
         m2,
-        img,
+        img: req.file.path,
         apartmentFor,
         style,
         owner,

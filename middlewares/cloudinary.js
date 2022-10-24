@@ -5,7 +5,7 @@ const {CloudinaryStorage} = require("multer-storage-cloudinary")
 //pasar las credenciales de cloudinary
 
 cloudinary.config({
-    coud_name: process.env.CLOUD_NAME,
+    cloud_name: process.env.CLOUD_NAME,
     api_key: process.env.CLOUD_API_KEY,
     api_secret: process.env.CLOUD_API_SECRET
 })
@@ -16,7 +16,7 @@ const storage = new CloudinaryStorage({
     cloudinary,
     params: {
         allowedFormats: ["jpg", "png"],
-        folder: "patata"
+        folder: "img"
     }
 })
 

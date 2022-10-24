@@ -2,6 +2,8 @@ const router = require("express").Router();
 const { isLoggedIn, isAdmin, isProfessional } = require("../middlewares/auth");
 const User = require("../models/User.model");
 const Property = require("../models/Property.model");
+const cloudinary = require("../middlewares/cloudinary.js")
+
 
 //GET "/Profile"
 router.get("/", isLoggedIn, (req, res, next) => {
@@ -33,18 +35,18 @@ router.get("/edit/:profileId", isLoggedIn, (req, res, next) => {
 });
 
 // POST '/profile/edit/:profileId'
-router.post("/edit/:profileId", isLoggedIn, (req, res, next) => {
+router.post("/edit/:profileId", isLoggedIn, cloudinary.single("img"), (req, res, next) => {
   let { profileId } = req.params;
-  const { name, surname, email, password, phone, img, role, properties } =
+  const { name, surname, email, password, phone, role, properties } =
     req.body;
-
+  
   const userUpdate = {
     name,
     surname,
     email,
     password,
     phone,
-    img,
+    img: req.file.path,
     role,
     properties,
   };

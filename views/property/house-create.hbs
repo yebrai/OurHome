@@ -2,7 +2,7 @@
 
   <h2>Post your Property!</h2>
 
-  <form action="/property/create" method="POST">
+  <form action="/property/create" method="POST" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="name" class="form-label">Name:</label>
       <input type="text" name="name" class="form-control" />
@@ -18,8 +18,8 @@
       <input type="text" name="email" class="form-control" />
     </div>
     <div class="mb-3">
-      <label for="images" class="form-label">Images: </label>
-      <input class="form-control" type="file" id="formFileMultiple" multiple />
+      <label for="property-img" class="form-label">Images: </label>
+      <input class="form-control" type="file" id="formFileMultiple" name="property-img"/>
     </div>
 
     <div class="mb-3">
