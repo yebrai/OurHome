@@ -1,35 +1,27 @@
+<h3>User profile</h3>
+
 <div>
-
-
-    <h1>ur profile</h1>
-     <div>
-        <img src="" alt="Avatar">
+{{#each details}}
+  {{#with this}}
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col">
+        <div class="card">
+          <img src="{{img}}" class="card-img-top" alt="img-profile-user" />
+          <div class="card-body">
+            <h5 class="card-title">Name: {{name}}.</h5>
+            <p class="card-text">Surname: {{surname}}.</p>
+            <p class="card-text">E-mail: {{email}}</p>
+            <p class="card-text">Phone: {{phone}}.</p>
+            <p class="card-text">Password: {{password}}.</p>
+            <div>
+              <a href="/profile/edit/{{_id}}" class="btn btn-outline-info">Edit</a>
+              <a href="#" class="btn btn-secondary">Change your pass!</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-        
-    <form action="/profile" method="POST">
-    <a href="/profile"><img src="" alt="Favourites Star"></a>
-    <label for="name">Name:</label>
-    <input type="text" name="name" />
-    <br />
-    <label for="surname">Surname:</label>
-    <input type="text" name="surname" />
-    <br />
 
-    <label for="email">Email:</label>
-    <input type="text" name="email" />
-    <br />
-    <label for="phone">Phone:</label>
-    <input type="number" name="phone" />
-    <br />
-
-    <p>Insert your avatar</p>
-    <div>
-        <button>Save changes</button>
-        <button>Delete account</button>
-    </div>
-    
-
-  </form>
-    </div>
+  {{/with}}
+{{/each}}
 </div>
