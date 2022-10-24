@@ -92,5 +92,41 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+}
+
+/* list */
+#list-container {
+  background-color: var(--background-softblue);
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.button-container-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-outline-info {
+  margin-bottom: 15px;
+}
+
+.nav-list-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10vh;
+  text-align: center;
+
+
+}
+
+.nav-list-container a{
+  text-decoration: none;
+  color: black;
 }
 
