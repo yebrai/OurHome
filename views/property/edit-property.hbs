@@ -1,0 +1,82 @@
+<div>
+
+  <h2>Edit your property</h2>
+{{#with details}}
+  <form action="/edit/:{{_id}}" method="POST">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input type="text" name="name" class="form-control" value="{{name}}"/>
+    </div>
+
+    <div class="mb-3">
+      <label for="location" class="form-label">Location:</label>
+      <input type="text" name="location" class="form-control" value="{{location}}"/>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">M2:</label>
+      <input type="email" name="email" class="form-control" value="{{email}}"/>
+    </div>
+    <div class="mb-3">
+      <label for="images" class="form-label">Images: </label>
+      <input class="form-control" type="file" id="formFileMultiple" multiple />
+    </div>
+
+    <div class="mb-3">
+      <label for="price" class="form-label">Price:</label>
+      <input type="number" name="price" class="form-control" value="{{price}}"/>
+    </div>
+
+    <div class="mb-3">
+      <label for="apartmentFor" class="form-label">For:</label>
+      <input type="text" name="apartmentFor" class="form-control" value="{{apartmentFor}}"/>
+    </div>
+
+    <div class="mb-3">
+      <label for="style" class="form-label">Style:</label>
+      <select name="style">
+        <option value="{{style}}" class="form-control">{{style}}</option>
+        <option value="chalet" class="form-control">chalet</option>
+        <option value="garage" class="form-control">garage</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <div>
+        <h3>Amenities</h3>
+        <ul>
+          <li>
+            <label for="security">Security</label>
+            <input type="checkbox" name="security" />
+          </li>
+          <li>
+            <label for="balcony">Balcony:</label>
+            <input type="checkbox" name="balcony" />
+          </li>
+          <li>
+            <label for="a/c">Central A/C & Heating:</label>
+            <input type="checkbox" name="a/c" />
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="owner" class="form-label">Owner:</label>
+      <input type="text" name="owner" class="form-control" value="{{owner}}"/>
+    </div>
+
+    <div class="mb-3">
+      <label for="professional" class="form-label">Professional:</label>
+      <input type="text" name="professional" class="form-control" value="{{professional}}"/>
+    </div>
+
+    <br />
+    <p>{{errorMessage}}</p>
+
+{{/with}}
+
+    <button>Edit!</button>
+  </form>
+
+</div>

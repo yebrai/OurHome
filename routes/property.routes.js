@@ -71,6 +71,7 @@ router.get('/details/:propertyId', (req,res,next) => {
 
     Property.findById(propertyId)
     .then((details) => {
+      // console.log(details);
       res.render('property/details.hbs',{
         details
       })
@@ -88,5 +89,21 @@ router.get('/details/:propertyId', (req,res,next) => {
     //     next(error)
     // }
 })
+
+router.get('/edit/:propertyId', (req,res,next) => {
+  let {propertyId} = req.params
+
+  Property.findById(propertyId)
+  .then((details) => {
+    res.render('property/edit-property.hbs', {
+      details})
+  })
+  .catch((err) => {
+    next(err)
+  })
+
+})
+
+router.post('/edit/:propertyId')
 
 module.exports = router;
