@@ -73,12 +73,28 @@ router.post("/delete/:profileId", isLoggedIn, (req, res, next) => {
   })
 });
 
-// GET '/property/favourite/'
+
+
+// GET '/profile/favourite/'
 router.get('/favourites', isLoggedIn, async (req,res,next) => {
   try {
     // let favProperty = Property.
     res.render('property/favourite-list.hbs')
     
+  } catch (error) {
+    next(error)
+  }
+})
+
+// Necesitamos extraer la info de la ruta de abajo.
+router.post('/favourites/:propertyId', isLoggedIn, async (req,res,next) => {
+  const {propertyId} = req.params
+  const foundUser = req.session.userOnline
+
+  console.log("found user:", foundUser,"propertyId", propertyId)
+  try {
+    let favProperty = await User.findByIdAndUpdate(foundUser._id, { $push: {favourite: propertyId}})
+
   } catch (error) {
     next(error)
   }
