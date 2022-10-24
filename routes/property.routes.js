@@ -104,6 +104,54 @@ router.get('/edit/:propertyId', (req,res,next) => {
 
 })
 
-router.post('/edit/:propertyId')
+router.post('/edit/:propertyId', (req,res,next) => {
+  let {propertyId} = req.params
+  const {
+    name,
+    location,
+    m2,
+    img,
+    apartmentFor,
+    style,
+    owner,
+    amenities,
+    price,
+    professional,
+  } = req.body;
+
+  const propertyUpdate = {
+    name,
+    location,
+    m2,
+    img,
+    apartmentFor,
+    style,
+    // owner,
+    amenities,
+    price,
+    // professional,
+  };
+
+  console.log(req.body);
+  Property.findByIdAndUpdate(propertyId, propertyUpdate)
+  .then(() => {
+    res.redirect(`/property/details/${propertyId}`)
+  })
+  .catch((err) => {
+    next(err)
+  })
+})
+
+// POST '/property/delete/:propertyId'
+router.post('/delete/:propertyId', (req,res,next) => {
+
+  Property.findByIdAndDelete(req.params.propertyId)
+  .then(() => {
+    res.redirect('/property/list')
+  })
+  .catch((err) => {
+    next(err)
+  })
+})
 
 module.exports = router;
