@@ -1,15 +1,15 @@
 <div>
 
-  <h2>Edit your user profile</h2>
+  <h2>Edit your Professional profile</h2>
   {{#with details}}
-    <form action="/profile/edit/{{_id}}" method="POST">
+    <form action="/professional/edit/{{_id}}" method="POST">
       <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
         <input type="text" name="name" class="form-control" value="{{name}}" />
       </div>
       <div class="mb-3">
-        <label for="surname" class="form-label">Surname:</label>
-        <input type="text" name="surname" class="form-control" value="{{surname}}" />
+        <label for="cif" class="form-label">CIF:</label>
+        <input type="text" name="cif" class="form-control" value="{{cif}}" />
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">E-mail:</label>
@@ -43,7 +43,7 @@
       <button>Update</button>
 
     </form>
-    <form action="/profile/delete/{{_id}}" method="post"><button>Delete</button></form>
+    <form action="/professional/delete/{{_id}}" method="post"><button>Delete</button></form>
   {{/with}}
 
 </div>
