@@ -1,18 +1,28 @@
 <div>
+  <a href="/property/favourite">My promotes</a>
 
-    <h1>Professional list of houses</h1>
-    <a href="/profile/create">Promote</a>
-    {{!-- <a href="">Favourites</a> --}}
-
-
-    <div>
-     
-     {{!-- each houselist ==> --}}
-        <a href="">Nombre</a>
-        <img src="" alt="Foto-House">
-
-
-
-    </div>
-
+  <h1>List of houses</h1>
 </div>
+
+{{#each listProperties}}
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col">
+      <div class="card">
+        <img src="{{this.img}}" class="card-img-top" alt="img-property" />
+        <div class="card-body">
+          <h5 class="card-title">{{this.name}}</h5>
+          <p class="card-text">Location: {{this.location}}.</p>
+          <p class="card-text">Price: $ {{this.price}}.-</p>
+          <p class="card-text">Property for {{this.apartmentFor}}.</p>
+
+          <a href="/property/details/{{this._id}}" class="btn btn-outline-info">More details!</a>
+          <form action="/property/{{this._id}}/favourite" method="post">
+            <a href="#" class="btn btn-primary">Promote House</a>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+{{/each}}

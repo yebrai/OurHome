@@ -35,6 +35,22 @@
           <form action="/property/{{this._id}}/favourite" method="post">
             <a href="#" class="btn btn-primary">Add Favourites</a>
           </form>
+          {{#if isUserActive}}
+        {{#if isProfessionalActive}}
+          <a href="/professional/profile">Profile</a>
+          <a href="/professional/list">Houses</a>
+        {{else}}
+          <a href="/profile">Profile</a>
+          <a href="/property/list">Houses</a>
+        {{/if}}
+        <a href="/auth/logout">Close</a>
+      {{else}}
+        <a href="/">Home</a>
+        <div class="acces-nav">
+          <a href="/auth/login">Log in</a>
+          <a href="/auth/signup">Sign up</a>
+        </div>
+      {{/if}}
 
         </div>
       </div>
