@@ -8,23 +8,16 @@ const cloudinary = require("../middlewares/cloudinary.js");
 router.get("/create", isLoggedIn, async (req, res, next) => {
   try {
     // antes de renderizar, voy a buscar todos los autores de la BD
-    const userList = await User.find();
+    const userList = await User.findById(req.session.userOnline);
     console.log(userList);
-    res.render("property/house-create.hbs"),
-      {
-        userList,
-      };
+    res.render("property/house-create.hbs", {userList});
   } catch (error) {
     next(error);
   }
 });
 
 // POST /property/create - render to property create
-router.post(
-  "/create",
-  isLoggedIn,
-  cloudinary.single("property-img"),
-  async (req, res, next) => {
+router.post("/create", isLoggedIn, cloudinary.single("property-img"), async (req, res, next) => {
     const {
       name,
       location,
@@ -52,7 +45,7 @@ router.post(
         img: req.file.path,
         apartmentFor,
         style,
-        owner,
+        owner: req.session.userOnline._id,
         amenities,
         price,
         professional,
@@ -79,27 +72,25 @@ router.get("/list", isLoggedIn, async (req, res, next) => {
   }
 });
 
-  router.post("/list", isLoggedIn, async (req, res, next) => {
-    try {
-      let listProperties = await Property.find();
-    //   console.log(listProperties);
-      res.render("property/list.hbs", {
-        listProperties,
-        
-      });
-    } catch (error) {
-      next(error);
-    }
-  });
+router.post("/list", isLoggedIn, async (req, res, next) => {
+  try {
+    let listProperties = await Property.find();
+    res.render("property/list.hbs", {
+      listProperties,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
 
 // GET '/property/details/:id' - render property-details
 router.get("/details/:propertyId", isLoggedIn, (req, res, next) => {
   const { propertyId } = req.params;
-
+  
   Property.findById(propertyId)
-    .then((details) => {
+  .populate('owner')
+  .then((details) => {     
       console.log(details);
-      // console.log(details);
       res.render("property/details.hbs", {
         details,
       });
@@ -116,6 +107,7 @@ router.get("/edit/:propertyId", isLoggedIn, (req, res, next) => {
   Property.findById(propertyId)
     .populate("owner")
     .then((details) => {
+      console.log(details);
       res.render("property/edit-property.hbs", {
         details,
       });
@@ -148,7 +140,7 @@ router.post("/edit/:propertyId", isLoggedIn, (req, res, next) => {
     img,
     apartmentFor,
     style,
-    // owner,
+    owner,
     amenities,
     price,
     // professional,
