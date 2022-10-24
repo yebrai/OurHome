@@ -79,15 +79,6 @@ router.get('/details/:propertyId', isLoggedIn, (req,res,next) => {
     .catch((err) => {
       next(err)
     })
-
-    // try {
-    //     let propertyDetails = Property.findById(propertyId)
-    //     res.render('property/details.hbs', {
-    //         propertyDetails
-    //     })   
-    // } catch (error) {
-    //     next(error)
-    // }
 })
 
 // GET '/property/edit/:propertyId'
