@@ -179,9 +179,4 @@ router.post("/delete/:propertyId", isLoggedIn, (req, res, next) => {
     });
 });
 
-// router.post('/:propertyId/favourite', isLoggedIn, (req,res,next) => {
-//   let {propertyId} = req.params
-
-// })
-
 module.exports = router;
