@@ -40,7 +40,12 @@ const userSchema = new Schema(
       default: "user"
     },
     properties:[{}],
-    favourite:[{}]
+    favourite:[
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Property",
+      }
+    ]
 
   },
       {
