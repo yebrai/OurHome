@@ -1,7 +1,7 @@
-<div>
 
+<div class="login-container">
   <h3>Login form</h3>
-  <form action="/auth/login" method="POST">
+  <form action="/auth/login" method="POST" class="form-login-container">
     <label for="email">Email:</label>
     <input type="text" name="email" />
     <select name="links" size="1" onchange="window.location.href=this.value">
@@ -17,5 +17,4 @@
 
     <p>{{errorMessage}}</p>
   </form>
-
 </div>
