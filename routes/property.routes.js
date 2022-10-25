@@ -91,6 +91,12 @@ router.get("/details/:propertyId", isLoggedIn, (req, res, next) => {
   Property.findById(propertyId)
   .populate('owner')
   .then((details) => {     
+    let timeConverter = details.createdAt.toString()
+    let hours = timeConverter.slice(16,-35)
+    let date = timeConverter.slice(0,-44)
+    let time = `${date}, ${hours}`
+    console.log(time);
+
     let myIdCompair = details.owner._id.toString()
     if (req.session.userOnline._id === myIdCompair) {
       sameOwner = true
@@ -98,6 +104,7 @@ router.get("/details/:propertyId", isLoggedIn, (req, res, next) => {
       res.render("property/details.hbs", {
         details,
         sameOwner,
+        time
       });
     })
     .catch((err) => {

@@ -21,17 +21,20 @@
         
 
             <div class="button-container-list">
-              <a
-                href="/property/details/{{this._id}}"
-                class="btn btn-outline-info"
-              >More details!</a>
+              <a href="/property/details/{{this._id}}" class="btn btn-outline-info">More details!</a>
               <form action="/profile/favourites/{{this._id}}" method="post">
-                <button class="btn btn-primary"> Add favourite</button>
-              </form>
+              {{#if ../isUserActive}}
+                <button class="btn btn-primary"> Add favourite</button> 
+              {{/if}}
+                </form>
             </div>
           </div>
         </div>
       </div>
     </div>
   {{/each}}
+   {{!-- {{#if isUserActive}}
+              <form action="/profile/favourites/{{this._id}}" method="post">
+                <button class="btn btn-primary"> Add favourite</button> </form>
+              {{/if}} --}}
 </div>
