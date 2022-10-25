@@ -95,11 +95,14 @@ router.get("/details/:propertyId", isLoggedIn, (req, res, next) => {
   Property.findById(propertyId)
   .populate('owner')
   .then((details) => {     
-    let timeConverter = details.createdAt.toString()
-    let hours = timeConverter.slice(16,-35)
-    let date = timeConverter.slice(0,-44)
-    let time = `${date}, ${hours}`
-    console.log(hours);
+    let timeCreateConverter = details.createdAt.toString()
+    let timeUpdateConverter = details.updatedAt.toString()
+    let hoursUpdate = timeUpdateConverter.slice(16,-35)
+    let hours = timeCreateConverter.slice(16,-35)
+    let dateUpdate = timeCreateConverter.slice(0,-44)
+    let date = timeCreateConverter.slice(0,-44)
+    let created = `${date}, ${hours}`
+    let updated = `${dateUpdate}, ${hoursUpdate}`
 
     let myIdCompair = details.owner._id.toString()
     if (req.session.userOnline._id === myIdCompair) {
@@ -108,7 +111,8 @@ router.get("/details/:propertyId", isLoggedIn, (req, res, next) => {
       res.render("property/details.hbs", {
         details,
         sameOwner,
-        time
+        created,
+        updated
       });
     })
     .catch((err) => {
