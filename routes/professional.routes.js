@@ -88,6 +88,19 @@ router.post("/delete/:professionalId", isProfessional, (req, res, next) => {
 });
 
 
+router.get("/listedProfessionals", async (req, res, next) => {
+
+  try {
+    let professionalList = await Professional.find()
+    res.render("professional/all-professional.hbs", {professionalList})
+    console.log(professionalList)
+  } catch (error) {
+    next(error)
+  }
+  
+})
+
+
 
 
 
