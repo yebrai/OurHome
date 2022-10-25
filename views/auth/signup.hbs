@@ -1,9 +1,9 @@
-<div>
+<div class="login-container">
 
-    <h2>Account Creation</h2>
-</div>
+ <div class="login-card">
+    <h2>Signup </h2>
 
-  <form action="/auth/signup" method="POST">
+  <form action="/auth/signup" method="POST" class="form-login-container">
 
     <label for="name">Name:</label>
     <input type="text" name="name" />
@@ -35,15 +35,11 @@
     <br>
 
 
-    <a href="">¿Dont remember your password?</a>
     <br>
     <p>{{errorMessage}}</p>
 
-    <button>Register</button>
+    <button class="log-form-button">Register</button>
   </form>
-
-
-
-
-
 </div>
+</div>
+    {{> footer}}

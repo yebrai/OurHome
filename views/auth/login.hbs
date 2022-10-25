@@ -1,6 +1,7 @@
 
 <div class="login-container">
-  <h3>Login form</h3>
+  <div class="login-card">
+  <h3>User login</h3>
   <form action="/auth/login" method="POST" class="form-login-container">
     <label for="email" class="form-label">Email:</label>
     <input type="text" name="email" />
@@ -13,8 +14,10 @@
     <input type="password" name="password" />
     <br />
 
-    <button>Submit</button>
+    <button class="log-form-button">Submit</button>
 
     <p>{{errorMessage}}</p>
   </form>
+  </div>
 </div>
+      {{> footer}}
