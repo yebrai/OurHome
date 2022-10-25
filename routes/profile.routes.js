@@ -47,7 +47,7 @@ router.post("/edit/:profileId", isLoggedIn, cloudinary.single("img"), (req, res,
     email,
     password,
     phone,
-    img: req.file.path,
+    img: req.file?.path,
     role,
     properties,
   };

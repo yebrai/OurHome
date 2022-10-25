@@ -141,7 +141,7 @@ router.get("/edit/:propertyId", isLoggedIn, (req, res, next) => {
 });
 
 // POST '/property/edit/:propertyId'
-router.post("/edit/:propertyId", isLoggedIn, (req, res, next) => {
+router.post("/edit/:propertyId", isLoggedIn,  cloudinary.single("img"), (req, res, next) => {
   let { propertyId } = req.params;
   const {
     name,
@@ -160,7 +160,7 @@ router.post("/edit/:propertyId", isLoggedIn, (req, res, next) => {
     name,
     location,
     m2,
-    img,
+    img: req.file?.path,
     apartmentFor,
     style,
     owner,
