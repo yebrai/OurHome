@@ -90,9 +90,14 @@ router.get("/details/:propertyId", isLoggedIn, (req, res, next) => {
   Property.findById(propertyId)
   .populate('owner')
   .then((details) => {     
-      console.log(details);
+    let myIdCompair = details.owner._id.toString()
+    if (req.session.userOnline._id === myIdCompair) {
+      sameOwner = true
+      console.log(sameOwner)
+    } else { sameOwner = false }
       res.render("property/details.hbs", {
         details,
+        sameOwner,
       });
     })
     .catch((err) => {
@@ -104,11 +109,18 @@ router.get("/details/:propertyId", isLoggedIn, (req, res, next) => {
 router.get("/edit/:propertyId", isLoggedIn, (req, res, next) => {
   let { propertyId } = req.params;
 
+  
   Property.findById(propertyId)
     .populate("owner")
     .then((details) => {
-      console.log(details);
+      let myIdCompair = details.owner._id.toString()
+      if (req.session.userOnline._id === myIdCompair) {
+        sameOwner = true
+        console.log(sameOwner)
+      } else { sameOwner = false }
+      console.log(myIdCompair)
       res.render("property/edit-property.hbs", {
+        sameOwner,
         details,
       });
     })

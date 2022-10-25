@@ -7,7 +7,8 @@ const cloudinary = require("../middlewares/cloudinary.js")
 
 //GET "/Profile"
 router.get("/", isLoggedIn, (req, res, next) => {
-  User.find()
+  const foundUser = req.session.userOnline
+  User.findById(foundUser._id)
     .then((details) => {
       res.render("profile/my-profile.hbs", {
         details,

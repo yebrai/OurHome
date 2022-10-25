@@ -82,7 +82,9 @@
 
 
   </form>
-    <form action="/property/delete/{{_id}}" method="post"><button>Delete</button></form>
   {{/with}}
+  {{#if sameOwner}}
+    <form action="/property/delete/{{details._id}}" method="post"><button>Delete</button></form>
+    {{/if}}
 
 </div>
