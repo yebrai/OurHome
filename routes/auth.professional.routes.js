@@ -64,7 +64,7 @@ router.post("/login", async (req, res, next) => {
 })
 // POST "/professional/signup"
 router.post("/signup", async (req, res, next) => {
-    const { name, cif, email, password, passwordConfirmation } =
+    const { name, cif, email, password, passwordConfirmation, phone } =
       req.body;
     // 1. Guard clause.
     if (
@@ -112,6 +112,7 @@ router.post("/signup", async (req, res, next) => {
         cif: cif,
         email: email,
         password: hashPassword,
+        phone: phone
       };
       
       await Professional.create(newProfessional);
