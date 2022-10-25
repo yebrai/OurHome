@@ -93,8 +93,7 @@ router.post('/favourites/:propertyId', isLoggedIn, async (req,res,next) => {
 
   console.log("found user:", foundUser,"propertyId", propertyId)
   try {
-    let favProperty = await User.findByIdAndUpdate(foundUser._id, { $push: {favourite: propertyId}})
-
+    await User.findByIdAndUpdate(foundUser._id, { $addToSet: {favourite: propertyId}})
   } catch (error) {
     next(error)
   }
