@@ -95,7 +95,7 @@ router.get("/details/:propertyId", isLoggedIn, (req, res, next) => {
     let hours = timeConverter.slice(16,-35)
     let date = timeConverter.slice(0,-44)
     let time = `${date}, ${hours}`
-    console.log(time);
+    console.log(hours);
 
     let myIdCompair = details.owner._id.toString()
     if (req.session.userOnline._id === myIdCompair) {
