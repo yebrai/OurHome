@@ -1,29 +1,14 @@
 <div class="div-main-list-container">
-
+{{#if userOnline}}
   <nav class="nav-list-container">
   <a href="/property/create">Add house</a>
   <a href="/profile/favourites">Favourites</a>
   </nav>
-
+{{/if}}
   <h1>List of houses</h1>
 
 
 {{#each listProperties}}
-
-  {{!-- <div>
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <img src="{{this.img}}" alt="Img-property" />
-            <h5 class="card-title">{{this.name}}</h5>
-            <p class="card-text">Location: {{this.location}}.</p>
-            <p class="card-text">Price: $ {{this.price}}.-</p>
-            <p class="card-text">Property for {{this.apartmentFor}}.</p>
-            <a href="#" class="btn btn-primary">Message!</a>
-            <a href="#" class="btn btn-primary">Add Favourites</a>
-          </div>
-        </div>
-      </div> --}}
 <div class="row row-cols-1 row-cols-md-2 g-4" class="list-container-main">
     <div class="col">
       <div class="card" id="list-container">
@@ -33,8 +18,10 @@
           <p class="card-text">Location: {{this.location}}.</p>
           <p class="card-text">Price: $ {{this.price}}.-</p>
           <p class="card-text">Property for {{this.apartmentFor}}.</p>
-        <div class="button-container-list">
-          <a href="/property/details/{{this._id}}" class="btn btn-outline-info">More details!</a>
+          <p class="card-text">Owner: <b>{{owner.surname}} {{owner.name}}</b></p>
+
+          <div class="button-container-list">
+            <a href="/property/details/{{this._id}}" class="btn btn-outline-info">More details!</a>
           
           <form action="/favourites/{{this._id}}" method="post">
             <a href="" class="btn btn-primary">Add Favourites</a>

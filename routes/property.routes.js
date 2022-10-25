@@ -4,6 +4,30 @@ const User = require("../models/User.model");
 const Property = require("../models/Property.model");
 const cloudinary = require("../middlewares/cloudinary.js");
 
+// GET /property/list - render to user signup
+router.get("/list", async (req, res, next) => {
+  try {
+    let listProperties = await Property.find().populate("owner")
+    res.render("property/list.hbs", {
+      listProperties,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// POST /property/list - render to user signup
+router.post("/list", async (req, res, next) => {
+  try {
+    let listProperties = await Property.find()
+    res.render("property/list.hbs", {
+      listProperties,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
 // GET /property/create - render to user create
 router.get("/create", isLoggedIn, async (req, res, next) => {
   try {
@@ -58,30 +82,6 @@ router.post("/create", isLoggedIn, cloudinary.single("property-img"), async (req
     }
   }
 );
-
-// GET /property/list - render to user signup
-router.get("/list", isLoggedIn, async (req, res, next) => {
-  try {
-    let listProperties = await Property.find();
-    //   console.log(listProperties);
-    res.render("property/list.hbs", {
-      listProperties,
-    });
-  } catch (error) {
-    next(error);
-  }
-});
-
-router.post("/list", isLoggedIn, async (req, res, next) => {
-  try {
-    let listProperties = await Property.find();
-    res.render("property/list.hbs", {
-      listProperties,
-    });
-  } catch (error) {
-    next(error);
-  }
-});
 
 // GET '/property/details/:id' - render property-details
 router.get("/details/:propertyId", isLoggedIn, (req, res, next) => {
