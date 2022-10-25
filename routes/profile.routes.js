@@ -74,8 +74,6 @@ router.post("/delete/:profileId", isLoggedIn, (req, res, next) => {
   })
 });
 
-
-
 // GET '/profile/favourite/'
 router.get('/favourites', isLoggedIn, async (req,res,next) => {
   const foundUser = req.session.userOnline

@@ -1,1 +1,41 @@
-<h3>detalles</h3>
+<h3>detalles de viviendas</h3>
+
+<div>
+
+  {{#with details}}
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col">
+        <div class="card">
+          <img src="{{img}}" class="card-img-top" alt="img-property" />
+          <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p class="card-text">Location: {{location}}.</p>
+            <p class="card-text">Dimensions: {{m2}}m².</p>
+            <p class="card-text">Price: $ {{price}}.-</p>
+            <p class="card-text">Property for: {{apartmentFor}}.</p>
+            <p class="card-text">Style: {{style}}.</p>
+            <p class="card-text">Posted: {{../time}}.</p>
+            {{!-- <label type="text" value="Amenities">Amenities</label> --}}
+            {{!-- <select name="Amenities">
+              {{#each amenities}}
+                <option>{{this}}</option>
+              {{/each}}
+            </select> --}}
+
+            <p class="card-text">Owner: <b>{{owner.surname}} {{owner.name}}.</b></p>
+            <div>
+  {{/with}}
+                {{#if sameOwner}}
+              <a href="/property/edit/{{details._id}}" class="btn btn-outline-info">Edit</a>
+                  {{/if}}
+
+                 <form action="/professional/promote/{{details._id}}" method="post">
+                    <button class="btn btn-primary">Promote House</button>
+                </form>
+              {{!-- <a href="/profile/profile/{{details._id}}" class="btn btn-secondary">Contact Owner</a> --}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

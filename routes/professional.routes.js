@@ -141,11 +141,23 @@ router.post("/promote/:propertyId/delete", isProfessional, async (req, res, next
 
 })
 
-router.get("/details:propertyId", isProfessional, async (req,res,next) => {
+router.get("/details/:propertyId", isProfessional, async (req,res,next) => {
   let {propertyId} = req.params
 
   try {
-    res.render('professional/details.hbs')
+    let details = await Property.findById(propertyId).populate('owner')
+    let timeConverter = details.createdAt.toString()
+    let hours = timeConverter.slice(16,-35)
+    let date = timeConverter.slice(0,-44)
+    let time = `${date}, ${hours}`
+    console.log(hours);
+
+    console.log(details);
+    res.render('professional/details.hbs',{
+      details,
+      time
+
+    })
     
   } catch (error) {
     next(error)

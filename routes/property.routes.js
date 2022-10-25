@@ -43,6 +43,7 @@ router.get("/create", isLoggedIn, async (req, res, next) => {
 // POST /property/create - render to property create
 router.post("/create", isLoggedIn, cloudinary.single("property-img"), async (req, res, next) => {
   // https://res.cloudinary.com/dbrqv6ypj/image/upload/v1666697681/img/suq5fixvwgiemkznuh0u.png
+  const foundUser = req.session.userOnline
     const {
       name,
       location,
@@ -76,8 +77,11 @@ router.post("/create", isLoggedIn, cloudinary.single("property-img"), async (req
         professional,
       };
 
-      await Property.create(newProperty);
+     let newHouse = await Property.create(newProperty);
       res.redirect("/property/list");
+      await User.findByIdAndUpdate(foundUser._id, { $addToSet: {properties: newHouse._id}})
+      console.log(newHouse);
+
     } catch (error) {
       next(error);
     }
@@ -176,14 +180,18 @@ router.post("/edit/:propertyId", isLoggedIn, (req, res, next) => {
 });
 
 // POST '/property/delete/:propertyId'
-router.post("/delete/:propertyId", isLoggedIn, (req, res, next) => {
-  Property.findByIdAndDelete(req.params.propertyId)
-    .then(() => {
-      res.redirect("/property/list");
-    })
-    .catch((err) => {
-      next(err);
-    });
+router.post("/delete/:propertyId", isLoggedIn, async (req, res, next) => {
+  let foundUser = req.session.userOnline
+  try {
+    let home = await Property.findByIdAndDelete(req.params.propertyId)
+        res.redirect("/property/list");
+  
+     await User.findByIdAndUpdate(foundUser._id, { $pull: {properties: home._id}})
+    
+  } catch (error) {
+    next(error)
+    
+  }
 });
 
 module.exports = router;

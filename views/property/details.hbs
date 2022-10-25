@@ -29,7 +29,11 @@
               <a href="/property/edit/{{details._id}}" class="btn btn-outline-info">Edit</a>
                   {{/if}}
 
-              <a href="#" class="btn btn-primary">Add Favourites</a>
+               <form action="/profile/favourites/{{details._id}}" method="post">
+              {{#if isUserActive}}
+                <button class="btn btn-primary"> Add favourite</button> 
+              {{/if}}
+                </form>
               {{!-- <a href="/profile/profile/{{details._id}}" class="btn btn-secondary">Contact Owner</a> --}}
             </div>
           </div>
