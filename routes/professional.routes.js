@@ -146,16 +146,19 @@ router.get("/details/:propertyId", isProfessional, async (req,res,next) => {
 
   try {
     let details = await Property.findById(propertyId).populate('owner')
-    let timeConverter = details.createdAt.toString()
-    let hours = timeConverter.slice(16,-35)
-    let date = timeConverter.slice(0,-44)
-    let time = `${date}, ${hours}`
-    console.log(hours);
-
-    console.log(details);
+    let timeCreateConverter = details.createdAt.toString()
+    let timeUpdateConverter = details.updatedAt.toString()
+    let hoursUpdate = timeUpdateConverter.slice(16,-35)
+    let hours = timeCreateConverter.slice(16,-35)
+    let dateUpdate = timeCreateConverter.slice(0,-44)
+    let date = timeCreateConverter.slice(0,-44)
+    let created = `${date}, ${hours}`
+    let updated = `${dateUpdate}, ${hoursUpdate}`
+    // console.log(details);
     res.render('professional/details.hbs',{
       details,
-      time
+      created,
+      updated
 
     })
     
