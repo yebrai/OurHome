@@ -1,5 +1,5 @@
 <div>
-  <a href="/property/favourite">My promotes</a>
+  <a href="/professional/promote">My promotes</a>
 
   <h1>List of houses</h1>
 </div>
@@ -16,8 +16,8 @@
           <p class="card-text">Property for {{this.apartmentFor}}.</p>
 
           <a href="/professional/details/{{this._id}}" class="btn btn-outline-info">More details!</a>
-          <form action="/property/{{this._id}}/favourite" method="post">
-            <a href="#" class="btn btn-primary">Promote House</a>
+          <form action="/professional/promote/{{this._id}}" method="post">
+            <button class="btn btn-primary">Promote House</button>
           </form>
 
         </div>

@@ -100,12 +100,47 @@ router.get("/listedProfessionals", async (req, res, next) => {
   
 })
 
+//MyPromoted
+router.get('/promote', isProfessional, async (req,res,next) => {
+  try {
 
+    let response = await  Professional.findById(req.session.professionalOnline._id).populate("properties")
+    res.render("professional/promote-list.hbs", { 
+      favouriteList: response.properties
+    })
+    console.log(response)
+    
+  } catch (error) {
+    next(error)
+  }
+})
 
+// Necesitamos extraer la info de la ruta de abajo.
+router.post('/promote/:propertyId', isProfessional, async (req,res,next) => {
+  const {propertyId} = req.params
+  const foundUser = req.session.professionalOnline
 
+  try {
+     await Professional.findByIdAndUpdate(foundUser._id, { $addToSet: {properties: propertyId}})
+    res.redirect("/professional/promote")
+  } catch (error) {
+    next(error)
+  }
+})
 
+router.post("/promote/:propertyId/delete", isProfessional, async (req, res, next) => {
+  let {propertyId} = req.params
+  console.log(propertyId)
+  const foundUser = req.session.professionalOnline
+ 
+  try {
+    await Professional.findByIdAndUpdate(foundUser._id, { $pull: {properties: propertyId}})
+    res.redirect("/professional/promote")
+  } catch (error) {
+    
+  }
 
-
+})
 
 
 
