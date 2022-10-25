@@ -35,16 +35,16 @@ app.use((req, res, next)=> {
      next()
     })
 
-    app.use((req, res, next)=> {
-        if(req.session.professionalOnline) {
-        // user on
-        res.locals.isProfessionalActive = true
-     } else {
-        // user of
-        res.locals.isProfessionalActive = false
-     }
-     next()
-    })
+app.use((req, res, next)=> {
+      if(req.session.professionalOnline) {
+      // user on
+      res.locals.isProfessionalActive = true
+   } else {
+      // user of
+      res.locals.isProfessionalActive = false
+   }
+   next()
+   })
 
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");

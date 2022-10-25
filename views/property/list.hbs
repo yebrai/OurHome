@@ -7,45 +7,32 @@
 {{/if}}
   <h1>List of houses</h1>
 
+  {{#each listProperties}}
 
-{{#each listProperties}}
-
-  {{!-- <div>
-      <div class="col-sm-6">
-        <div class="card">
+    <div class="row row-cols-1 row-cols-md-2 g-4" class="list-container-main">
+      <div class="col">
+        <div class="card" id="list-container">
+          <img src="{{this.img}}" class="card-img-top" alt="img-property" />
           <div class="card-body">
-            <img src="{{this.img}}" alt="Img-property" />
             <h5 class="card-title">{{this.name}}</h5>
             <p class="card-text">Location: {{this.location}}.</p>
             <p class="card-text">Price: $ {{this.price}}.-</p>
             <p class="card-text">Property for {{this.apartmentFor}}.</p>
-            <a href="#" class="btn btn-primary">Message!</a>
-            <a href="#" class="btn btn-primary">Add Favourites</a>
-          </div>
-        </div>
-      </div> --}}
-<div class="row row-cols-1 row-cols-md-2 g-4" class="list-container-main">
-    <div class="col">
-      <div class="card" id="list-container">
-        <img src="{{this.img}}" class="card-img-top" alt="img-property" />
-        <div class="card-body">
-          <h5 class="card-title">{{this.name}}</h5>
-          <p class="card-text">Location: {{this.location}}.</p>
-          <p class="card-text">Price: $ {{this.price}}.-</p>
-          <p class="card-text">Property for {{this.apartmentFor}}.</p>
-          <p class="card-text">Owner: <b>{{owner.surname}} {{owner.name}}</b></p>
+            <p class="card-text">Owner:
+              <b>{{owner.surname}} {{owner.name}}</b></p>
 
-          <div class="button-container-list">
-            <a href="/property/details/{{this._id}}" class="btn btn-outline-info">More details!</a>
-          
-          <form action="/profile/favourites/{{this._id}}" method="post">
-            <button class="btn btn-primary">Add button</button>
+            <div class="button-container-list">
+              <a
+                href="/property/details/{{this._id}}"
+                class="btn btn-outline-info"
+              >More details!</a>
+              <form action="/profile/favourites/{{this._id}}" method="post">
+                <a href="" class="btn btn-primary">Add Favourites</a>
+              </form>
+            </div>
           </div>
-          </form>
         </div>
       </div>
     </div>
-  </div> 
-  </div>
-{{/each}}
+  {{/each}}
 </div>
