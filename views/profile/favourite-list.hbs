@@ -1,7 +1,25 @@
 <h3>Lista de favoritos:</h3>
 
-{{#each foundFavourite}}
-<ul>
-    <li>{{favourite.name}}</li>
-</ul>
+{{#each favouriteList}}
+
+    <div class="row row-cols-1 row-cols-md-2 g-4" class="list-container-main">
+      <div class="col">
+        <div class="card" id="list-container">
+          <img src="{{this.img}}" class="card-img-top" alt="img-property" />
+          <div class="card-body">
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="card-text">Location: {{this.location}}.</p>
+            <p class="card-text">Price: $ {{this.price}}.-</p>
+            <p class="card-text">Property for {{this.apartmentFor}}.</p>
+            <p class="card-text">Owner:
+              <b>{{owner.surname}} {{owner.name}}</b></p>
+              <form action="/profile/favourites/{{_id}}/delete" method="POST">
+               <button class="btn btn-primary">Delete</button>
+               </form>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 {{/each}}
