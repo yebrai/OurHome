@@ -1,5 +1,5 @@
 <div class="div-main-list-container">
-  {{#if userOnline}}
+  {{#if isUserActive}}
     <nav class="nav-list-container">
       <a href="/property/create">Add house</a>
       <a href="/profile/favourites">Favourites</a>
@@ -26,14 +26,9 @@
                 href="/property/details/{{this._id}}"
                 class="btn btn-outline-info"
               >More details!</a>
-  {{#if userOnline}}
-              <form action="/favourites/{{this._id}}" method="post">
+              <form action="/profile/favourites/{{this._id}}" method="post">
                 <a href="" class="btn btn-primary">Add Favourites</a>
               </form>
-{{!-- {{#if  }} --}}
-              <form action="/property/delete/{{_id}}" method="post"><button  class="btn btn-danger">Delete</button></form>
-{{!-- {{/if}} --}}
-  {{/if}}
             </div>
           </div>
         </div>
