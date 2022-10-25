@@ -74,6 +74,7 @@ html {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  align-items: center;
   flex-wrap: wrap;
   color: var(--backgroud-blue);
   background-color: var(--background-softblue);
@@ -144,6 +145,7 @@ html {
   display: flex;
   flex-direction: column;
   border: 5px;
+  
 }
 
 .login-card {
@@ -159,15 +161,14 @@ html {
   padding-bottom:5px;
   background-color: var(--soft-blue);
   color:white;
-  border-radius:4px;
+  border-radius:6px;
   border: 1px solid;
   width: 40%;
-  margin-top:20px;
-  margin-bottom:20px;
-  float:left;
-  margin-left:16px;
   font-weight:800;
   font-size:0.8em;
+  margin-left: 17.5vh;
 }
 
-
+.log-form-button:hover{
+  background-color: var(--backgroud-blue);
+}
