@@ -80,12 +80,12 @@ router.post("/delete/:profileId", isLoggedIn, (req, res, next) => {
 router.get('/favourites', isLoggedIn, async (req,res,next) => {
   const foundUser = req.session.userOnline
   try {
-    console.log(foundUser.favourite)
-    // let favProperty = Property.
-    let foundFavourite = Property.find()
-    res.render("profile/favourite-list.hbs", {
-      foundFavourite
+
+    let response = await  User.findById(req.session.userOnline._id).populate("favourite")
+    res.render("profile/favourite-list.hbs", { 
+      favouriteList: response.favourite
     })
+
     
   } catch (error) {
     next(error)
@@ -100,13 +100,23 @@ router.post('/favourites/:propertyId', isLoggedIn, async (req,res,next) => {
   console.log("found user:", foundUser,"propertyId", propertyId)
   try {
     await User.findByIdAndUpdate(foundUser._id, { $addToSet: {favourite: propertyId}})
+    res.redirect("/profile/favourites")
   } catch (error) {
     next(error)
   }
 })
 
+router.post("/favourites/:propertyId/delete", isLoggedIn, async (req, res, next) => {
+  let {propertyId} = req.params
+  console.log(propertyId)
+  const foundUser = req.session.userOnline
+ 
+  try {
+    await User.findByIdAndUpdate(foundUser._id, { $pull: {favourite: propertyId}})
+    res.redirect("/profile/favourites")
+  } catch (error) {
+    
+  }
 
-
-
-
+})
 module.exports = router;
