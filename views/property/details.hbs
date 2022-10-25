@@ -10,16 +10,16 @@
           <div class="card-body">
             <h5 class="card-title">{{name}}</h5>
             <p class="card-text">Location: {{location}}.</p>
+            <p class="card-text">Dimensions: {{m2}}m².</p>
             <p class="card-text">Price: $ {{price}}.-</p>
             <p class="card-text">Property for: {{apartmentFor}}.</p>
             <p class="card-text">Style: {{style}}.</p>
-            {{!-- <p class="card-text">Amenities: {{amenities}}.</p> --}}
-            <label type="text" value="Amenities">Amenities</label>
-            <select name="Amenities">
+            {{!-- <label type="text" value="Amenities">Amenities</label> --}}
+            {{!-- <select name="Amenities">
               {{#each amenities}}
                 <option>{{this}}</option>
               {{/each}}
-            </select>
+            </select> --}}
             <p class="card-text">Owner: <b>{{owner.surname}} {{owner.name}}.</b></p>
             <div>
   {{/with}}

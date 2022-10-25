@@ -10,17 +10,12 @@
 
     <div class="mb-3">
       <label for="location" class="form-label">Location:</label>
-      <input
-        type="text"
-        name="location"
-        class="form-control"
-        value="{{location}}"
-      />
+      <input type="text" name="location" class="form-control" value="{{location}}"/>
     </div>
 
     <div class="mb-3">
-      <label for="email" class="form-label">M2:</label>
-      <input type="email" name="email" class="form-control" value="{{email}}" />
+      <label for="m2" class="form-label">M2:</label>
+      <input type="number" name="m2" class="form-control" value="{{m2}}" />
     </div>
     <div class="mb-3">
       <label for="images" class="form-label">Images: </label>
@@ -38,21 +33,19 @@
     </div>
 
     <div class="mb-3">
-      <label for="apartmentFor" class="form-label">For:</label>
-      <input
-        type="text"
-        name="apartmentFor"
-        class="form-control"
-        value="{{apartmentFor}}"
-      />
+      <label for="for" class="form-label">For:</label>
+      <select name="for">
+        <option value="rent" class="form-control">Sale</option>
+        <option value="sale" class="form-control">Rent</option>
+      </select>
     </div>
 
     <div class="mb-3">
       <label for="style" class="form-label">Style:</label>
       <select name="style">
-        <option value="{{style}}" class="form-control">{{style}}</option>
-        <option value="chalet" class="form-control">chalet</option>
-        <option value="garage" class="form-control">garage</option>
+        <option value="apart" class="form-control">Apart</option>
+        <option value="chalet" class="form-control">Chalet</option>
+        <option value="garage" class="form-control">Garage</option>
       </select>
     </div>
 

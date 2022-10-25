@@ -33,7 +33,7 @@ router.get("/create", isLoggedIn, async (req, res, next) => {
   try {
     // antes de renderizar, voy a buscar todos los autores de la BD
     const userList = await User.findById(req.session.userOnline);
-    console.log(userList);
+    // console.log(userList);
     res.render("property/house-create.hbs", {userList});
   } catch (error) {
     next(error);
@@ -42,6 +42,7 @@ router.get("/create", isLoggedIn, async (req, res, next) => {
 
 // POST /property/create - render to property create
 router.post("/create", isLoggedIn, cloudinary.single("property-img"), async (req, res, next) => {
+  // https://res.cloudinary.com/dbrqv6ypj/image/upload/v1666697681/img/suq5fixvwgiemkznuh0u.png
     const {
       name,
       location,
@@ -60,7 +61,7 @@ router.post("/create", isLoggedIn, cloudinary.single("property-img"), async (req
       });
       return;
     }
-
+    // console.log(amenities);
     try {
       let newProperty = {
         name,
@@ -91,7 +92,6 @@ router.get("/details/:propertyId", isLoggedIn, (req, res, next) => {
   .populate('owner')
   .then((details) => {     
     let myIdCompair = details.owner._id.toString()
-    // console.log('owner', details)
     if (req.session.userOnline._id === myIdCompair) {
       sameOwner = true
     } else { sameOwner = false }
@@ -116,7 +116,7 @@ router.get("/edit/:propertyId", isLoggedIn, (req, res, next) => {
       let myIdCompair = details.owner._id.toString()
       if (req.session.userOnline._id === myIdCompair) {
         sameOwner = true
-        console.log(sameOwner)
+        console.log('owner', details)
       } else { sameOwner = false }
       console.log(myIdCompair)
       res.render("property/edit-property.hbs", {

@@ -28,7 +28,7 @@ const propertySchema = new Schema(
     amenities: [
       {
         type: String,
-        enum: ["Security", "Balcony", "Central A/C & Heating"],
+        enum: ["Security", "Balcony", "Central A/C & Heating", "Study", "Private Pool", "Pets Allowed", "Covered Parking"],
       },
     ],
     owner: {

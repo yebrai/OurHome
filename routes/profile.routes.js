@@ -40,7 +40,7 @@ router.post("/edit/:profileId", isLoggedIn, cloudinary.single("img"), (req, res,
   let { profileId } = req.params;
   const { name, surname, email, password, phone, role, properties } =
     req.body;
-  
+
   const userUpdate = {
     name,
     surname,
