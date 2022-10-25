@@ -78,9 +78,14 @@ router.post("/delete/:profileId", isLoggedIn, (req, res, next) => {
 
 // GET '/profile/favourite/'
 router.get('/favourites', isLoggedIn, async (req,res,next) => {
+  const foundUser = req.session.userOnline
   try {
+    console.log(foundUser.favourite)
     // let favProperty = Property.
-    res.render('property/favourite-list.hbs')
+    let foundFavourite = Property.find()
+    res.render("profile/favourite-list.hbs", {
+      foundFavourite
+    })
     
   } catch (error) {
     next(error)

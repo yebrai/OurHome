@@ -1,6 +1,19 @@
 <div>
     <h2>List of all professionals</h2>
     {{#each professionalList}}
-    <li>{{name}} {{email}}</li>
+    {{!-- <li>Professional name: {{name}} Email: {{email}} Phone:{{phone}}</li> --}}
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col">
+        <div class="card">
+          <img src="{{img}}" alt="img-profile-user" width="150px"/>
+          <div class="card-body">
+            <h5 class="card-title">Name: {{name}}.</h5>
+            <p class="card-text">Surname: {{surname}}.</p>
+            <p class="card-text">E-mail: {{email}}</p>
+            <p class="card-text">Phone: {{phone}}.</p>
+          </div>
+        </div>
+      </div>
+    </div>
     {{/each}}
 </div>
