@@ -91,9 +91,9 @@ router.get("/details/:propertyId", isLoggedIn, (req, res, next) => {
   .populate('owner')
   .then((details) => {     
     let myIdCompair = details.owner._id.toString()
+    // console.log('owner', details)
     if (req.session.userOnline._id === myIdCompair) {
       sameOwner = true
-      console.log(sameOwner)
     } else { sameOwner = false }
       res.render("property/details.hbs", {
         details,

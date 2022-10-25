@@ -116,7 +116,7 @@ router.post("/signup", async (req, res, next) => {
       
       await Professional.create(newProfessional);
       console.log(req.body);
-      res.redirect("/professional/login");
+      res.redirect("/auth-professional/login");
     } catch (error) {
       next(error);
     }
