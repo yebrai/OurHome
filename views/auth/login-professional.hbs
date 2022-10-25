@@ -1,6 +1,7 @@
-<div "login-container">
 
-  <h3>Login form</h3>
+<div class="login-container">
+  <div class="login-card">
+  <h3>Professional login</h3>
   <form action="/auth-professional/login" method="POST" class="form-login-container">
     <label for="cif">CIF:</label>
     <input type="text" name="cif" />
@@ -16,5 +17,6 @@
     <button>Submit</button>
 
   </form>
-
+  </div>
 </div>
+    {{> footer}}

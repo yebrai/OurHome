@@ -17,6 +17,9 @@ const favicon = require("serve-favicon");
 // https://www.npmjs.com/package/path
 const path = require("path");
 
+const hbs = require('hbs');
+hbs.registerPartials(path.join(__dirname, "..", "/views/partials"));
+
 // Require de express-sesion y connect-mongo
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
