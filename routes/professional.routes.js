@@ -122,7 +122,7 @@ router.post('/promote/:propertyId', isProfessional, async (req,res,next) => {
 
   try {
      await Professional.findByIdAndUpdate(foundUser._id, { $addToSet: {properties: propertyId}})
-    res.redirect("/professional/promote")
+    res.redirect("/professional/list")
   } catch (error) {
     next(error)
   }
@@ -130,14 +130,25 @@ router.post('/promote/:propertyId', isProfessional, async (req,res,next) => {
 
 router.post("/promote/:propertyId/delete", isProfessional, async (req, res, next) => {
   let {propertyId} = req.params
-  console.log(propertyId)
   const foundUser = req.session.professionalOnline
  
   try {
     await Professional.findByIdAndUpdate(foundUser._id, { $pull: {properties: propertyId}})
     res.redirect("/professional/promote")
   } catch (error) {
+    next(error)
+  }
+
+})
+
+router.get("/details:propertyId", isProfessional, async (req,res,next) => {
+  let {propertyId} = req.params
+
+  try {
+    res.render('professional/details.hbs')
     
+  } catch (error) {
+    next(error)
   }
 
 })
