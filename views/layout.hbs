@@ -23,8 +23,13 @@
       {{else}}
         <a href="/">Home</a>
         <div class="acces-nav">
+          {{#if isAdminActive}}
+          <a href="/admin/index">index</a>
+          <a href="/auth/logout">Log Out</a>
+          {{else}}
           <a href="/auth/login">Log in</a>
           <a href="/auth/signup">Sign up</a>
+          {{/if}}
         </div>
       {{/if}}
     </nav>
