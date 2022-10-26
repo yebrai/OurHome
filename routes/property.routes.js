@@ -109,6 +109,7 @@ router.get("/details/:propertyId", isLoggedIn, (req, res, next) => {
     let date = timeCreateConverter.slice(0,-44)
     let created = `${date}, ${hours}`
     let updated = `${dateUpdate}, ${hoursUpdate}`
+    let newdate = new Date().tol
     // console.log();
 
     let myIdCompair = details.owner._id.toString()
