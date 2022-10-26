@@ -1,3 +1,13 @@
 <div>
-    <h1>Professionals list</h1>
+
+  <h1>List of houses</h1>
+
+  {{#each professionalsList}}
+
+
+          <img src="{{this.img}}" alt="img-property" width="100px" />
+            <h5 >{{this.name}}</h5>
+                <button> Delete</button> 
+
+  {{/each}}
 </div>

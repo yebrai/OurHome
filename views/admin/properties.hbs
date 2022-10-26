@@ -4,29 +4,10 @@
 
   {{#each propertiesList}}
 
-    <div class="row row-cols-1 row-cols-md-2 g-4" class="list-container-main">
-      <div class="col">
-        <div class="card" id="list-container">
-          <img src="{{this.img}}" class="card-img-top" alt="img-property" />
-          <div class="card-body">
-            <h5 class="card-title">{{this.name}}</h5>
-            <p class="card-text">Location: {{this.location}}.</p>
-            <p class="card-text">Price: $ {{this.price}}.-</p>
-            <p class="card-text">Property for {{this.apartmentFor}}.</p>
-        
 
-            <div class="button-container-list">
-              <a href="/property/details/{{this._id}}" class="btn btn-outline-info">More details!</a>
-              <form action="/admin/delete-property/{{this._id}}" method="post">
-              {{#if ../isUserActive}}
-                <button class="btn btn-primary"> Add favourite</button> 
-              {{/if}}
-                </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          <img src="{{this.img}}" alt="img-property" width="100px" />
+            <h5 >{{this.name}}</h5>
+                <button> Delete</button> 
+
   {{/each}}
-</div>
 </div>

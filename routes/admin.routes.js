@@ -11,21 +11,34 @@ router.get("/index", (req, res, next) => {
 router.get("/users-list", async(req, res, next) => {
     
     try {
-        let propertiesList = Property.find()
-        res.render("admin/users.hbs", {propertiesList})
+        let usersList = await User.find()
+        res.render("admin/users.hbs", {usersList})
         
     } catch (error) {
         next(error)
     }
 
 })
-router.get("/professionals-list", (req, res, next) => {
-    res.render("admin/professionals.hbs")
-})
-router.get("/properties-list", (req, res, next) => {
-    res.render("admin/properties.hbs")
+router.get("/properties-list", async (req, res, next) => {
+    try {
+        let propertiesList = await Property.find()
+        res.render("admin/properties.hbs", {propertiesList})
+        console.log(propertiesList)
+        
+    } catch (error) {
+        next(error)
+    }
 })
 
+router.get("/professionals-list", async(req, res, next) => {
+    try {
+        let professionalsList = await Professional.find()
+        res.render("admin/professionals.hbs", {professionalsList})
+    }
+    catch (error) {
+        next(error)
+    }
+})
 
 
 module.exports = router;
