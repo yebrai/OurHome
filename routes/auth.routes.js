@@ -18,7 +18,8 @@ router.post("/signup", async (req, res, next) => {
     surname === "" ||
     email === "" ||
     password === "" ||
-    passwordConfirmation === ""
+    passwordConfirmation === "" ||
+    phone === ""
   ) {
     res.render("auth/signup.hbs", {
       errorMessage: "Introducir caracteres"
