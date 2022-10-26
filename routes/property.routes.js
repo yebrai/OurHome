@@ -18,16 +18,6 @@ router.get("/list", async (req, res, next) => {
   }
 });
 
-router.post("/list", async (req, res, next) => {
-  try {
-    let listProperties = await Property.find()
-    res.render("property/list.hbs", {
-      listProperties,
-    });
-  } catch (error) {
-    next(error);
-  }
-});
 
 // POST use data from "index.hbs" for find Property with filter
 router.post("/list/location", async (req, res, next) => {
@@ -125,7 +115,7 @@ router.get("/details/:propertyId", (req, res, next) => {
       });
     })
     .catch((err) => {
-      next(err);
+      res.redirect("/auth/login");
     });
 });
 

@@ -59,6 +59,7 @@ router.post("/login", async (req, res, next) => {
     next(error);
   }
 });
+
 // POST get all data from auth/signup-professional.hbs form"
 router.post("/signup", async (req, res, next) => {
   const { name, cif, email, password, passwordConfirmation, phone } = req.body;
