@@ -4,10 +4,11 @@
 
   {{#each usersList}}
 
-
-            <h5> {{this.name}}</h5>
-          <img src="{{this.img}}" alt="img-property" width="100px"/>
-                <button> Delete</button> 
+    <h5> {{this.name}}</h5>
+    <img src="{{this.img}}" alt="img-property" width="100px" />
+    <form action="/admin/user/{{_id}}/delete" method="POST">
+      <button> Delete</button>
+    </form>
 
   {{/each}}
 </div>

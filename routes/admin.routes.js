@@ -4,11 +4,12 @@ const Professional = require("../models/Professional.model.js");
 const Property = require("../models/Property.model");
 const User = require('../models/User.model.js');
 
-router.get("/index", (req, res, next) => {
+router.get("/index", isAdmin,(req, res, next) => {
     res.render("admin/index.hbs")
 })
 
-router.get("/users-list", async(req, res, next) => {
+//Render admin views and list all models
+router.get("/users-list", isAdmin, async(req, res, next) => {
     
     try {
         let usersList = await User.find()
@@ -19,7 +20,7 @@ router.get("/users-list", async(req, res, next) => {
     }
 
 })
-router.get("/properties-list", async (req, res, next) => {
+router.get("/properties-list", isAdmin, async (req, res, next) => {
     try {
         let propertiesList = await Property.find()
         res.render("admin/properties.hbs", {propertiesList})
@@ -30,12 +31,46 @@ router.get("/properties-list", async (req, res, next) => {
     }
 })
 
-router.get("/professionals-list", async(req, res, next) => {
+router.get("/professionals-list", isAdmin, async(req, res, next) => {
     try {
         let professionalsList = await Professional.find()
         res.render("admin/professionals.hbs", {professionalsList})
     }
     catch (error) {
+        next(error)
+    }
+})
+
+//Post routes for admin delete
+router.post("/user/:elemId/delete", isAdmin, async(req, res, next) => {
+    let {elemId} = req.params
+    try {
+        await User.findByIdAndDelete(elemId)
+        res.redirect("/admin/index")
+        
+    } catch (error) {
+        next(error)
+    }
+})
+
+router.post("/property/:elemId/delete", isAdmin, async(req, res, next) => {
+    let {elemId} = req.params
+    try {
+        await Property.findByIdAndDelete(elemId)
+        res.redirect("/admin/index")
+        
+    } catch (error) {
+        next(error)
+    }
+})
+
+router.post("/professional/:elemId/delete", isAdmin, async(req, res, next) => {
+    let {elemId} = req.params
+    try {
+        await Professional.findByIdAndDelete(elemId)
+        res.redirect("/admin/index")
+        
+    } catch (error) {
         next(error)
     }
 })

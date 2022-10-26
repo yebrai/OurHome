@@ -4,10 +4,11 @@
 
   {{#each professionalsList}}
 
-
-          <img src="{{this.img}}" alt="img-property" width="100px" />
-            <h5 >{{this.name}}</h5>
-                <button> Delete</button> 
+    <img src="{{this.img}}" alt="img-property" width="100px" />
+    <h5>{{this.name}}</h5>
+    <form action="/admin/professional/{{_id}}/delete" method="POST">
+    <button> Delete</button>
+    </form>
 
   {{/each}}
 </div>
