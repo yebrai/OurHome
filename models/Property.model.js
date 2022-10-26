@@ -11,7 +11,7 @@ const propertySchema = new Schema(
     m2: Number,
     img: [String],
     price: {
-      type: Number,
+      type: String,
       trim: true,
       required: true,
     },

@@ -42,7 +42,6 @@ router.get("/create", isLoggedIn, async (req, res, next) => {
 
 // POST /property/create - render to property create
 router.post("/create", isLoggedIn, cloudinary.single("property-img"), async (req, res, next) => {
-  // https://res.cloudinary.com/dbrqv6ypj/image/upload/v1666697681/img/suq5fixvwgiemkznuh0u.png
   const foundUser = req.session.userOnline
     const {
       name,
@@ -50,7 +49,6 @@ router.post("/create", isLoggedIn, cloudinary.single("property-img"), async (req
       m2,
       apartmentFor,
       style,
-      owner,
       amenities,
       price,
       professional,
@@ -62,7 +60,14 @@ router.post("/create", isLoggedIn, cloudinary.single("property-img"), async (req
       });
       return;
     }
-    // console.log(amenities);
+     
+    let amenitiesArr = [];
+    for(let key in req.body){
+      if(req.body[key] === 'on'){
+        amenitiesArr.push(key)
+      }
+    }
+
     try {
       let newProperty = {
         name,
@@ -72,15 +77,14 @@ router.post("/create", isLoggedIn, cloudinary.single("property-img"), async (req
         apartmentFor,
         style,
         owner: req.session.userOnline._id,
-        amenities,
+        amenities: amenitiesArr,
         price,
         professional,
       };
+     
 
      let newHouse = await Property.create(newProperty);
       res.redirect("/property/list");
-      await User.findByIdAndUpdate(foundUser._id, { $addToSet: {properties: newHouse._id}})
-      console.log(newHouse);
 
     } catch (error) {
       next(error);
@@ -132,9 +136,9 @@ router.get("/edit/:propertyId", isLoggedIn, (req, res, next) => {
       let myIdCompair = details.owner._id.toString()
       if (req.session.userOnline._id === myIdCompair) {
         sameOwner = true
-        console.log('owner', details)
+        // console.log('owner', details)
       } else { sameOwner = false }
-      console.log(myIdCompair)
+      console.log(details)
       res.render("property/edit-property.hbs", {
         sameOwner,
         details,

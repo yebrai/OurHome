@@ -29,65 +29,59 @@
 
     <div class="mb-3">
       <label for="price" class="form-label">Price:</label>
-      <input type="number" name="price" class="form-control" />
+      <input type="text" name="price" class="form-control" value="" />
     </div>
 
     <div class="mb-3">
       <label for="for" class="form-label">For:</label>
       <select name="for">
-        <option value="rent" class="form-control">Sale</option>
-        <option value="sale" class="form-control">Rent</option>
+        <optionlass="form-control">Sale</option>
+        <optionlass="form-control">Rent</option>
       </select>
     </div>
 
     <div class="mb-3">
       <label for="style" class="form-label">Style:</label>
       <select name="style">
-        <option value="apart" class="form-control">Apart</option>
-        <option value="chalet" class="form-control">Chalet</option>
-        <option value="garage" class="form-control">Garage</option>
+        <optionlass="form-control">Apart</option>
+        <optionlass="form-control">Chalet</option>
+        <optionlass="form-control">Garage</option>
       </select>
     </div>
 
     <div class="mb-3">
       <div>
         <h3>Amenities</h3>
-        {{!-- <form action="/property/create"> --}}
           <ul>
             <li>
-              <label for="security">Security</label>
-              <input type="checkbox" name="security" value="security" />
+              <label for="Security">Security</label>
+              <input type="checkbox" name="Security"/>
             </li>
             <li>
-              <label for="balcony">Balcony:</label>
-              <input type="checkbox" name="balcony" value="balcony"  />
+              <label for="Balcony">Balcony:</label>
+              <input type="checkbox" name="Balcony"/>
             </li>
             <li>
-              <label for="a/c">Central A/C & Heating:</label>
-              <input type="checkbox" name="a/c" value="a/c"/>
+              <label for="Central A/C & Heating">Central A/C & Heating:</label>
+              <input type="checkbox" name="Central A/C & Heating"/>
             </li>
             <li>
-              <label for="study">Study:</label>
-              <input type="checkbox" name="study" value="study" />
+              <label for="Study">Study:</label>
+              <input type="checkbox" name="Study">
             </li>
             <li>
-              <label for="balcony">Balcony:</label>
-              <input type="checkbox" name="balcony" value="balcony" />
+              <label for="Private Pool">Private Pool:</label>
+              <input type="checkbox" name="Private Pool">
             </li>
             <li>
-              <label for="pool">Private Pool:</label>
-              <input type="checkbox" name="pool" value="pool" />
+              <label for="Pets Allowed">Pets Allowed:</label>
+              <input type="checkbox" name="Pets Allowed">
             </li>
             <li>
-              <label for="pets">Pets Allowed:</label>
-              <input type="checkbox" name="pets" value="pets" />
-            </li>
-            <li>
-              <label for="parking">Covered Parking:</label>
-              <input type="checkbox" name="parking" value="parking" />
+              <label for="Covered Parking">Covered Parking:</label>
+              <input type="checkbox" name="Covered Parking">
             </li>
           </ul>
-        {{!-- </form> --}}
       </div>
     </div>
     {{#with userList}}

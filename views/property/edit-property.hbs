@@ -2,82 +2,83 @@
 
   <h2>Edit your property</h2>
   {{#with details}}
-    <form action="/property/edit/{{_id}}" method="POST" enctype="multipart/form-data">
-    <div class="mb-3">
-      <label for="name" class="form-label">Name:</label>
-      <input type="text" name="name" class="form-control" value="{{name}}" />
-    </div>
-
-    <div class="mb-3">
-      <label for="location" class="form-label">Location:</label>
-      <input type="text" name="location" class="form-control" value="{{location}}"/>
-    </div>
-
-    <div class="mb-3">
-      <label for="m2" class="form-label">M2:</label>
-      <input type="number" name="m2" class="form-control" value="{{m2}}" />
-    </div>
-    <div class="mb-3">
-      <label for="img" class="form-label">Images: </label>
-      <input class="form-control" name="img"  type="file" id="formFileMultiple"/>
-    </div>
-
-    <div class="mb-3">
-      <label for="price" class="form-label">Price:</label>
-      <input
-        type="number"
-        name="price"
-        class="form-control"
-        value="{{price}}"
-      />
-    </div>
-
-    <div class="mb-3">
-      <label for="for" class="form-label">For:</label>
-      <select name="for">
-        <option value="rent" class="form-control">Sale</option>
-        <option value="sale" class="form-control">Rent</option>
-      </select>
-    </div>
-
-    <div class="mb-3">
-      <label for="style" class="form-label">Style:</label>
-      <select name="style">
-        <option value="apart" class="form-control">Apart</option>
-        <option value="chalet" class="form-control">Chalet</option>
-        <option value="garage" class="form-control">Garage</option>
-      </select>
-    </div>
-
-    <div class="mb-3">
-      <div>
-        <h3>Amenities</h3>
-        <ul>
-          <li>
-            <label for="security">Security</label>
-            <input type="checkbox" name="security" />
-          </li>
-          <li>
-            <label for="balcony">Balcony:</label>
-            <input type="checkbox" name="balcony" />
-          </li>
-          <li>
-            <label for="a/c">Central A/C & Heating:</label>
-            <input type="checkbox" name="a/c" />
-          </li>
-        </ul>
+    <form
+      action="/property/edit/{{_id}}"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" name="name" class="form-control" value="{{name}}" />
       </div>
-    </div>
-   <br />
-    <p>{{errorMessage}}</p>
 
-    <button>Update</button>
+      <div class="mb-3">
+        <label for="location" class="form-label">Location:</label>
+        <input
+          type="text"
+          name="location"
+          class="form-control"
+          value="{{location}}"
+        />
+      </div>
 
+      <div class="mb-3">
+        <label for="m2" class="form-label">M2:</label>
+        <input type="number" name="m2" class="form-control" value="{{m2}}" />
+      </div>
+      <div class="mb-3">
+        <label for="img" class="form-label">Images: </label>
+        <input
+          class="form-control"
+          name="img"
+          type="file"
+          id="formFileMultiple"
+        />
+      </div>
 
-  </form>
+      <div class="mb-3">
+        <label for="price" class="form-label">Price:</label>
+        <input
+          type="text"
+          name="price"
+          class="form-control"
+          value="{{price}}"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="for" class="form-label">For:</label>
+        <select name="for">
+          <option value="rent" class="form-control">Sale</option>
+          <option value="sale" class="form-control">Rent</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="style" class="form-label">Style:</label>
+          <input type="text" name="style" class="form-control" value="{{style}}" readonly />
+      </div>
+      </div>
+
+      <div class="mb-3">
+        <div>
+          <h3>Amenities</h3>
+          {{#each amenities}}
+            <li>
+              <label for="{{this}}">{{this}}</label>
+              <input type="checkbox" name="{{this}}" checked />
+            </li>
+          {{/each}}
+        </div>
+      </div>
+      <br />
+      <button>Update</button>
+
+    </form>
   {{/with}}
   {{#if sameOwner}}
-    <form action="/property/delete/{{details._id}}" method="post"><button>Delete</button></form>
-    {{/if}}
+    <form action="/property/delete/{{details._id}}" method="post"><button
+      >Delete</button></form>
+  {{/if}}
 
 </div>
