@@ -21,7 +21,6 @@ router.get("/properties-list", isAdmin, async (req, res, next) => {
   try {
     let propertiesList = await Property.find();
     res.render("admin/properties.hbs", { propertiesList });
-    console.log(propertiesList);
   } catch (error) {
     next(error);
   }

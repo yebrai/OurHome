@@ -40,7 +40,6 @@ router.post("/login", async (req, res, next) => {
         }
         // 2. Verifing password with bcrypt
         const isPasswordValid = await bcrypt.compare(password, foundProfessional.password);
-        console.log("isPasswordValid", isPasswordValid);
         if (!isPasswordValid) {
           res.render("auth/login-professional.hbs", {
             errorMessage: "incorrect email address or password",
@@ -51,7 +50,6 @@ router.post("/login", async (req, res, next) => {
     
         //User is active
         req.session.professionalOnline = foundProfessional;
-        console.log(req.session.professionalOnline)
     
         req.session.save(() => {
           // 4. redirects to private page
@@ -116,7 +114,6 @@ router.post("/signup", async (req, res, next) => {
       };
       
       await Professional.create(newProfessional);
-      console.log(req.body);
       res.redirect("/auth-professional/login");
     } catch (error) {
       next(error);

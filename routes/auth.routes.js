@@ -98,7 +98,7 @@ router.post("/login", async (req, res, next) => {
     }
     // 2. Verifing password with bcrypt
     const isPasswordValid = await bcrypt.compare(password, foundUser.password);
-    console.log("isPasswordValid", isPasswordValid);
+
     if (!isPasswordValid) {
       res.render("auth/login.hbs", {
         errorMessage: "incorrect email address or password",
@@ -109,7 +109,6 @@ router.post("/login", async (req, res, next) => {
 
     //User is active
     req.session.userOnline = foundUser;
-    console.log(req.session.userOnline)
 
     req.session.save(() => {
       // 4. redirects to private page
