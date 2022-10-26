@@ -39,7 +39,7 @@ html {
   background-image: url('/images/index-background2.jpg');
   background-position: top;
   background-size: cover;
-  height: 75vh;
+  height: 78vh;
 }
 
 #index-section h1{
@@ -78,7 +78,7 @@ html {
   flex-wrap: wrap;
   color: var(--backgroud-blue);
   background-color: var(--background-softblue);
-  height: 10vh;
+  height: 7vh;
 }
 
 #index-footer li {
@@ -92,8 +92,9 @@ html {
 
 #container-developers {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
 
 }
 
@@ -137,7 +138,7 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 84.8vh;
+  height: 88vh;
 
 }
 
