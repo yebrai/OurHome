@@ -4,11 +4,13 @@ const Professional = require("../models/Professional.model.js");
 const Property = require("../models/Property.model");
 const User = require("../models/User.model.js");
 
+// "/admin/:routes"
+
 router.get("/index", isAdmin, (req, res, next) => {
   res.render("admin/index.hbs");
 });
 
-//Render admin views and list all models
+// This GETS, render admin views
 router.get("/users-list", isAdmin, async (req, res, next) => {
   try {
     let usersList = await User.find();
@@ -35,7 +37,7 @@ router.get("/professionals-list", isAdmin, async (req, res, next) => {
   }
 });
 
-//Post routes for admin delete
+//This POSTS, get view data for delete element
 router.post("/user/:elemId/delete", isAdmin, async (req, res, next) => {
   let { elemId } = req.params;
   try {

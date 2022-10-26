@@ -5,7 +5,7 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-
+//Routes
 const authRoutes = require ('./auth.routes.js');
 router.use('/auth', authRoutes);
 

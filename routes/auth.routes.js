@@ -1,14 +1,14 @@
-const router = require ('express').Router()
+const router = require("express").Router();
 const User = require("../models/User.model.js");
 const bcrypt = require("bcryptjs");
 
+// "/auth/:routes"
 
-// GET /auth/signup - render to user signup
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup.hbs");
 });
 
-// POST /auth/signup - render to user signup/create user
+// POST get all data from auth/signup.hbs form
 router.post("/signup", async (req, res, next) => {
   const { name, surname, email, phone, password, passwordConfirmation } =
     req.body;
@@ -22,7 +22,7 @@ router.post("/signup", async (req, res, next) => {
     phone === ""
   ) {
     res.render("auth/signup.hbs", {
-      errorMessage: "Introducir caracteres"
+      errorMessage: "Introducir caracteres",
     });
     return;
   }
@@ -30,7 +30,7 @@ router.post("/signup", async (req, res, next) => {
   const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm;
   if (passwordRegex.test(password) === false) {
     res.render("auth/signup.hbs", {
-      errorMessage: "Introducir caracteres validos"
+      errorMessage: "Introducir caracteres validos",
     });
     return;
   }
@@ -69,12 +69,11 @@ router.post("/signup", async (req, res, next) => {
   }
 });
 
-// GET /auth/login - render to user login
 router.get("/login", (req, res, next) => {
   res.render("auth/login.hbs");
 });
 
-// POST /auth/login - render to user login
+// POST get all data from auth/login.hbs form
 router.post("/login", async (req, res, next) => {
   const { email, password } = req.body;
 
@@ -112,23 +111,23 @@ router.post("/login", async (req, res, next) => {
 
     req.session.save(() => {
       // 4. redirects to private page
+      // if useronline is admin, redirect /admin/index
       if (req.session.userOnline.role === "admin") {
-      res.redirect("/admin/index");
+        res.redirect("/admin/index");
+      } else {
+        res.redirect("/property/list");
       }
-      else{res.redirect("/property/list")}
     });
   } catch (error) {
     next(error);
   }
 });
 
-
+//GET for close sesion
 router.get("/logout", (req, res, next) => {
   req.session.destroy(() => {
     res.redirect("/");
   });
 });
 
-
 module.exports = router;
-

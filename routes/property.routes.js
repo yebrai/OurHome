@@ -4,7 +4,9 @@ const User = require("../models/User.model");
 const Property = require("../models/Property.model");
 const cloudinary = require("../middlewares/cloudinary.js");
 
-// GET /property/list - render to user signup
+// "/property/:routes"
+
+// GET render "property/list.hbs" with Property sorted
 router.get("/list", async (req, res, next) => {
   try {
     let listProperties = await Property.find().populate("owner").sort({createdAt: -1})
@@ -16,7 +18,6 @@ router.get("/list", async (req, res, next) => {
   }
 });
 
-// POST /property/list - render to user signup
 router.post("/list", async (req, res, next) => {
   try {
     let listProperties = await Property.find()
@@ -28,7 +29,7 @@ router.post("/list", async (req, res, next) => {
   }
 });
 
-// POST get searcher info and send that to /list/location for render that // kata mayus
+// POST use data from "index.hbs" for find Property with filter
 router.post("/list/location", async (req, res, next) => {
   try {
     let listProperties = await Property.find( {location: {$in: req.body.location } } )
@@ -41,7 +42,6 @@ router.post("/list/location", async (req, res, next) => {
 });
 
 
-// GET /property/create - render to user create
 router.get("/create", isLoggedIn, async (req, res, next) => {
   try {
     // antes de renderizar, voy a buscar todos los autores de la BD
@@ -54,7 +54,6 @@ router.get("/create", isLoggedIn, async (req, res, next) => {
 
 // POST /property/create - render to property create
 router.post("/create", isLoggedIn, cloudinary.single("property-img"), async (req, res, next) => {
-  const foundUser = req.session.userOnline
     const {
       name,
       location,
@@ -105,7 +104,7 @@ router.post("/create", isLoggedIn, cloudinary.single("property-img"), async (req
 );
 
 // GET '/property/details/:id' - render property-details
-router.get("/details/:propertyId", isLoggedIn, (req, res, next) => {
+router.get("/details/:propertyId", (req, res, next) => {
   const { propertyId } = req.params;
   
   Property.findById(propertyId)
@@ -113,7 +112,7 @@ router.get("/details/:propertyId", isLoggedIn, (req, res, next) => {
   .then((details) => {     
     let created = new Date().toLocaleDateString() + " at " + new  Date().toLocaleTimeString()
     let updated = new Date().toLocaleDateString() + " at " + new  Date().toLocaleTimeString()
-
+    
     let myIdCompair = details.owner._id.toString()
     if (req.session.userOnline._id === myIdCompair) {
       sameOwner = true
