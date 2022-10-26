@@ -58,7 +58,7 @@ router.post("/edit/:professionalId", isProfessional, cloudinary.single("professi
     cif,
     email,
     phone,
-    img: req.file.path,
+    img: req.file?.path,
     role,
   };
 
