@@ -112,7 +112,10 @@ router.post("/login", async (req, res, next) => {
 
     req.session.save(() => {
       // 4. redirects to private page
-      res.redirect("/property/list");
+      if (req.session.userOnline.role === "admin") {
+      res.redirect("/admin/index");
+      }
+      else{res.redirect("/property/list")}
     });
   } catch (error) {
     next(error);

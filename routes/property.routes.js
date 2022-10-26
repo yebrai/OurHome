@@ -7,6 +7,8 @@ const cloudinary = require("../middlewares/cloudinary.js");
 // GET /property/list - render to user signup
 router.get("/list", async (req, res, next) => {
   try {
+    console.log("user", res.locals.isUserActive)
+    console.log("admin", res.locals.isAdminActive )
     let listProperties = await Property.find().populate("owner")
     res.render("property/list.hbs", {
       listProperties,
