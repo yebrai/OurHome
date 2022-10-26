@@ -7,7 +7,7 @@ const isLoggedIn = (req,res,next) => {
 }
 
 const isAdmin = (req,res,next) => {
-    if (!req.session.userOnline || req.session.userOnline !== 'admin' ){
+    if (req.session.userOnline.role !== 'admin' ){
         res.redirect('/auth/login')
     }else{
         next()

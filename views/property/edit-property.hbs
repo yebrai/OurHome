@@ -2,7 +2,7 @@
 
   <h2>Edit your property</h2>
   {{#with details}}
-    <form action="/property/edit/{{_id}}" method="POST">
+    <form action="/property/edit/{{_id}}" method="POST" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="name" class="form-label">Name:</label>
       <input type="text" name="name" class="form-control" value="{{name}}" />
@@ -18,8 +18,8 @@
       <input type="number" name="m2" class="form-control" value="{{m2}}" />
     </div>
     <div class="mb-3">
-      <label for="images" class="form-label">Images: </label>
-      <input class="form-control" type="file" id="formFileMultiple" multiple />
+      <label for="img" class="form-label">Images: </label>
+      <input class="form-control" name="img"  type="file" id="formFileMultiple"/>
     </div>
 
     <div class="mb-3">

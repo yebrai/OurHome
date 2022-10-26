@@ -21,4 +21,8 @@ router.use('/professional', professionalRoutes);
 const propertyRoutes = require ('./property.routes.js');
 router.use('/property', propertyRoutes);
 
+const adminRoutes = require ('./admin.routes.js');
+router.use('/admin', adminRoutes);
+
+
 module.exports = router;

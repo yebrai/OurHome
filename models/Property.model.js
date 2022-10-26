@@ -25,12 +25,7 @@ const propertySchema = new Schema(
       enum: ['garaje', 'chalet', 'apart'],
       default: "apart",
     },
-    amenities: [
-      {
-        type: String,
-        enum: ["Security", "Balcony", "Central A/C & Heating", "Study", "Private Pool", "Pets Allowed", "Covered Parking"],
-      },
-    ],
+    amenities: [String],
     owner: {
         type: Schema.Types.ObjectId,
         ref: "User",

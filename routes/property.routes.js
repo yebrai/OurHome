@@ -68,7 +68,7 @@ router.post("/create", isLoggedIn, cloudinary.single("property-img"), async (req
         name,
         location,
         m2,
-        img: req.file.path,
+        img: req.file?.path,
         apartmentFor,
         style,
         owner: req.session.userOnline._id,
@@ -103,6 +103,7 @@ router.get("/details/:propertyId", isLoggedIn, (req, res, next) => {
     let date = timeCreateConverter.slice(0,-44)
     let created = `${date}, ${hours}`
     let updated = `${dateUpdate}, ${hoursUpdate}`
+    // console.log();
 
     let myIdCompair = details.owner._id.toString()
     if (req.session.userOnline._id === myIdCompair) {
