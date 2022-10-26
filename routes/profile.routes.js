@@ -25,7 +25,6 @@ router.get("/edit/:profileId", isLoggedIn, (req, res, next) => {
 
   User.findById(profileId)
     .then((details) => {
-      console.log(details);
       res.render("profile/edit-user.hbs", {
         details,
       });
@@ -95,7 +94,6 @@ router.post('/favourites/:propertyId', isLoggedIn, async (req,res,next) => {
   const {propertyId} = req.params
   const foundUser = req.session.userOnline
 
-  console.log("found user:", foundUser,"propertyId", propertyId)
   try {
     await User.findByIdAndUpdate(foundUser._id, { $addToSet: {favourite: propertyId}})
     res.redirect("/property/list")
@@ -106,7 +104,6 @@ router.post('/favourites/:propertyId', isLoggedIn, async (req,res,next) => {
 
 router.post("/favourites/:propertyId/delete", isLoggedIn, async (req, res, next) => {
   let {propertyId} = req.params
-  console.log(propertyId)
   const foundUser = req.session.userOnline
  
   try {

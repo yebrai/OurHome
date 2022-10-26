@@ -7,9 +7,7 @@ const cloudinary = require("../middlewares/cloudinary.js");
 // GET /property/list - render to user signup
 router.get("/list", async (req, res, next) => {
   try {
-    console.log("user", res.locals.isUserActive)
-    console.log("admin", res.locals.isAdminActive )
-    let listProperties = await Property.find().populate("owner")
+    let listProperties = await Property.find().populate("owner").sort({createdAt: -1})
     res.render("property/list.hbs", {
       listProperties,
     });
@@ -30,12 +28,24 @@ router.post("/list", async (req, res, next) => {
   }
 });
 
+// POST get searcher info and send that to /list/location for render that // kata mayus
+router.post("/list/location", async (req, res, next) => {
+  try {
+    let listProperties = await Property.find( {location: {$in: req.body.location } } )
+    res.render("property/list.hbs", {
+      listProperties,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+
 // GET /property/create - render to user create
 router.get("/create", isLoggedIn, async (req, res, next) => {
   try {
     // antes de renderizar, voy a buscar todos los autores de la BD
     const userList = await User.findById(req.session.userOnline);
-    // console.log(userList);
     res.render("property/house-create.hbs", {userList});
   } catch (error) {
     next(error);
@@ -101,15 +111,8 @@ router.get("/details/:propertyId", isLoggedIn, (req, res, next) => {
   Property.findById(propertyId)
   .populate('owner')
   .then((details) => {     
-    let timeCreateConverter = details.createdAt.toString()
-    let timeUpdateConverter = details.updatedAt.toString()
-    let hoursUpdate = timeUpdateConverter.slice(16,-35)
-    let hours = timeCreateConverter.slice(16,-35)
-    let dateUpdate = timeCreateConverter.slice(0,-44)
-    let date = timeCreateConverter.slice(0,-44)
-    let created = `${date}, ${hours}`
-    let updated = `${dateUpdate}, ${hoursUpdate}`
-    // console.log();
+    let created = new Date().toLocaleDateString() + " at " + new  Date().toLocaleTimeString()
+    let updated = new Date().toLocaleDateString() + " at " + new  Date().toLocaleTimeString()
 
     let myIdCompair = details.owner._id.toString()
     if (req.session.userOnline._id === myIdCompair) {
@@ -138,9 +141,7 @@ router.get("/edit/:propertyId", isLoggedIn, (req, res, next) => {
       let myIdCompair = details.owner._id.toString()
       if (req.session.userOnline._id === myIdCompair) {
         sameOwner = true
-        // console.log('owner', details)
       } else { sameOwner = false }
-      console.log(details)
       res.render("property/edit-property.hbs", {
         sameOwner,
         details,
@@ -180,7 +181,6 @@ router.post("/edit/:propertyId", isLoggedIn,  cloudinary.single("img"), (req, re
     // professional,
   };
 
-  console.log(req.body);
   Property.findByIdAndUpdate(propertyId, propertyUpdate)
     .then(() => {
       res.redirect(`/property/details/${propertyId}`);

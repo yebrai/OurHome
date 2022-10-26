@@ -9,7 +9,6 @@ const cloudinary = require("../middlewares/cloudinary.js")
 router.get("/list", isProfessional, async (req, res, next) => {
   try {
     let listProperties = await Property.find();
-  //   console.log(listProperties);
     res.render("professional/list.hbs", {
       listProperties,
     });
@@ -39,7 +38,6 @@ router.get("/edit/:profileId", isProfessional, (req, res, next) => {
 
   Professional.findById(profileId)
     .then((details) => {
-      console.log(details);
       res.render("professional/edit-professional.hbs", {
         details,
       });
@@ -63,7 +61,6 @@ router.post("/edit/:professionalId", isProfessional, cloudinary.single("professi
     img: req.file.path,
     role,
   };
-  console.log(professionalUpdate)
 
   Professional.findByIdAndUpdate(professionalId, professionalUpdate)
     .then(() => {
@@ -93,7 +90,6 @@ router.get("/listedProfessionals", async (req, res, next) => {
   try {
     let professionalList = await Professional.find()
     res.render("professional/all-professionals.hbs", {professionalList})
-    console.log(professionalList)
   } catch (error) {
     next(error)
   }
@@ -108,7 +104,7 @@ router.get('/promote', isProfessional, async (req,res,next) => {
     res.render("professional/promote-list.hbs", { 
       favouriteList: response.properties
     })
-    console.log(response)
+
     
   } catch (error) {
     next(error)
@@ -146,15 +142,9 @@ router.get("/details/:propertyId", isProfessional, async (req,res,next) => {
 
   try {
     let details = await Property.findById(propertyId).populate('owner')
-    let timeCreateConverter = details.createdAt.toString()
-    let timeUpdateConverter = details.updatedAt.toString()
-    let hoursUpdate = timeUpdateConverter.slice(16,-35)
-    let hours = timeCreateConverter.slice(16,-35)
-    let dateUpdate = timeCreateConverter.slice(0,-44)
-    let date = timeCreateConverter.slice(0,-44)
-    let created = `${date}, ${hours}`
-    let updated = `${dateUpdate}, ${hoursUpdate}`
-    // console.log(details);
+    let created = new Date().toLocaleDateString() + " at " + new  Date().toLocaleTimeString()
+    let updated = new Date().toLocaleDateString() + " at " + new  Date().toLocaleTimeString()
+    
     res.render('professional/details.hbs',{
       details,
       created,

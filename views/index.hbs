@@ -7,8 +7,11 @@
     <a href="/property/list">🔍 Property</a>
   </div>
   <div class="searchers-index">
-    <label for="">Search by location</label>
-    <input type="text" placeholder="🔍 Location" />
+    <form action="/property/list/location" method="post">
+    <label for="location">Search by location</label>
+    <input type="text" placeholder="🔍 Location" name="location"/>
+    <button>Search</button>
+    </form>
   </div>
   <div class="searchers-index">
     <label for="">Search professionals</label>
