@@ -41,7 +41,7 @@ router.post("/user/:elemId/delete", isAdmin, async (req, res, next) => {
   let { elemId } = req.params;
   try {
     await User.findByIdAndDelete(elemId);
-    res.redirect("/admin/index");
+    res.redirect("/admin/users-list");
   } catch (error) {
     next(error);
   }
@@ -51,7 +51,7 @@ router.post("/property/:elemId/delete", isAdmin, async (req, res, next) => {
   let { elemId } = req.params;
   try {
     await Property.findByIdAndDelete(elemId);
-    res.redirect("/admin/index");
+    res.redirect("/admin/properties-list");
   } catch (error) {
     next(error);
   }
@@ -61,7 +61,7 @@ router.post("/professional/:elemId/delete", isAdmin, async (req, res, next) => {
   let { elemId } = req.params;
   try {
     await Professional.findByIdAndDelete(elemId);
-    res.redirect("/admin/index");
+    res.redirect("/admin/professionals-list");
   } catch (error) {
     next(error);
   }
