@@ -1,6 +1,6 @@
-<div>
+<section class="container-edit-profile">
 
-  <h2>Post your Property!</h2>
+  <h5>Post Property</h5>
 
   <form action="/property/create" method="POST" enctype="multipart/form-data">
     <div class="mb-3">
@@ -76,9 +76,10 @@
       </div>
     {{/with}}
 
-    <br />
+    <div class="edit-button-container">
     <p>{{errorMessage}}</p>
-    <button>Post!</button>
+    <button class="btn btn-primary">Post!</button>
   </form>
-
-</div>
+  </div>
+</section>
+    {{> footer}}

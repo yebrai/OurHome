@@ -191,3 +191,21 @@ html {
     margin: 0 auto;
     padding: 10px;
   }
+
+/* edit/create: property-profile-user */
+.container-edit-profile {
+  width: 30%;
+  height: 84vh;
+  margin: 20px auto;
+  border: 1px solid;
+  padding: 20px 20px 0px 20px;
+  background-color: var(--background-softblue);
+  border-radius: 5px;
+}
+.edit-button-container {
+  display: flex;
+  height: 38px;
+}
+.delete-user-edit{
+  margin-left: 20%;
+}

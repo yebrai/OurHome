@@ -1,4 +1,4 @@
-<div>
+<section class="container-edit-profile">
 
   <h2>Edit your property</h2>
   {{#with details}}
@@ -58,13 +58,13 @@
         </div>
       </div>
       <br />
-      <button>Update</button>
-
+      <div class="edit-button-container">
+      <button class="btn btn-primary">Update</button>
     </form>
   {{/with}}
   {{#if sameOwner}}
-    <form action="/property/delete/{{details._id}}" method="post"><button
-      >Delete</button></form>
+    <form action="/property/delete/{{details._id}}" method="post"><button class="btn btn-danger delete-user-edit">Delete</button></form>
   {{/if}}
-
-</div>
+  </div>
+</section>
+    {{> footer}}

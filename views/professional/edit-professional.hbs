@@ -1,5 +1,4 @@
-<div>
-
+<section class="container-edit-profile">
   <h2>Edit your Professional profile</h2>
   {{#with details}}
     <form action="/professional/edit/{{_id}}" method="POST" enctype="multipart/form-data">
@@ -23,7 +22,6 @@
         <label for="role" class="form-label">Role:</label>
         <input type="text" name="role" class="form-control" value="{{role}}" readonly/>
       </div>
-
       <div class="mb-3">
         <label for="professional-img" class="form-label">Image: </label>
         <input
@@ -32,15 +30,13 @@
           name="professional-img"
           id="formFile"/>
       </div>
-
- 
       <br />
+      <div class="edit-button-container">
       <p>{{response}}</p>
-
-      <button>Update</button>
-
+      <button class="btn btn-primary">Update</button>
     </form>
-    <form action="/professional/delete/{{_id}}" method="post"><button>Delete</button></form>
+    <form action="/professional/delete/{{_id}}" method="post"><button class="btn btn-danger delete-user-edit">Delete</button></form>
+    </div>
   {{/with}}
-
-</div>
+</section>
+    {{> footer}}
