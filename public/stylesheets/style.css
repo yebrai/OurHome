@@ -33,7 +33,7 @@ html {
   background-image: url('/images/index-background2.jpg');
   background-position: top;
   background-size: cover;
-  height: 78vh;
+  height: 78%;
 }
 
 .nav-home a {
