@@ -173,3 +173,21 @@ html {
 .log-form-button:hover{
   background-color: var(--backgroud-blue);
 }
+
+/* Profiles USER - PROFESSIONAL */
+  .main-container-profile{
+    padding-top: 200px;
+    display: flex;
+    height: 88vh;
+  }
+  .container-profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    gap: 20px;
+    height: 250px;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 10px;
+  }

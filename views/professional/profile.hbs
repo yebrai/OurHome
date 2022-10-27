@@ -1,23 +1,17 @@
-<h3>User profile</h3>
-
-<div>
-  {{#with details}}
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-      <div class="col">
-        <div class="card">
-          <img src="{{img}}" alt="img-profile-user" width="150px" />
-          <div class="card-body">
-            <h5 class="card-title">Name: {{name}}.</h5>
-            <p class="card-text">CIF: {{cif}}.</p>
-            <p class="card-text">E-mail: {{email}}</p>
-            <p class="card-text">Phone: {{phone}}.</p>
-            <div>
-              <a href="/professional/edit/{{_id}}" class="btn btn-outline-info">Edit</a>
-              <a href="#" class="btn btn-secondary">Change your pass!</a>
+<section class="main-container-profile">
+    {{#with details}}
+      <div class="container-profile">
+            <img src="{{img}}" alt="img-profile-user" width="150px" />
+            <div class="card-body">
+              <br>
+              <h3>Profile:</h3>
+              <h5 class="card-title">Name: {{name}}.</h5>
+              <p class="card-text">Cif: {{cif}}.</p>
+              <p class="card-text">E-mail: {{email}}</p>
+              <p class="card-text">Phone: {{phone}}.</p>
+              <a href="/professional/edit/{{_id}}" class="btn btn-outline-info" >Edit</a>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  {{/with}}
-</div>
+    {{/with}}
+</section>
+    {{> footer}}
