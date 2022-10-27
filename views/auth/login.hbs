@@ -6,64 +6,13 @@
     <label for="email" class="form-label">Email:</label>
     <input type="text" name="email" />
     <select name="links" size="1" onchange="window.location.href=this.value">
-      <option value="/auth/login">Individual</option>
+      <option value="/auth/login">Particular</option>
       <option value="/auth-professional/login">Professional</option>
     </select>
     <br />
     <label for="password">Password:</label>
     <input type="password" name="password" />
     <br />
-
-
-    {{!-- <label for="checkbox" class="toggler">
-      <input type="checkbox" id="checkbox">
-      <span class="ball"></span>
-      <i class="right sun" onchange="window.location.href=this.value" value="/auth/login"></i>
-      <i class="left moon" onchange="window.location.href=this.value" value="/auth-professional/login" ></i>
-    </label>
-
-    <style>
-      #checkbox{
-        display: none;
-      }
-      .toggler{
-        display: block;
-        width: 60px;
-        height: 30px;
-        border: 2px solid black;
-        border-radius: 30px;
-        position: relative;
-        cursor: pointer;
-      }
-      .ball,
-      .right,
-      .left {
-        position: absolute;
-        top: 5%;
-        transform: translate(-50%);
-      }
-
-      .sun{
-        left: 5px;
-      }
-      .moon{
-        right: 5px;
-      }
-      #checkbox:checked + .ball {
-        transform: translate(15px, -2%);
-      }
-
-      .ball{
-        display: inline-block;
-        width: 25px;
-        height: 25px;
-        background-color: black;
-        border-radius: 50%;
-        left: 15px;
-        transition: transform
-        .5s ease-in-out;
-      }
-    </style> --}}
 
     <button class="log-form-button">Submit</button>
 
