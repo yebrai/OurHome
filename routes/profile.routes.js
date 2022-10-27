@@ -79,11 +79,12 @@ router.post("/delete/:profileId", isLoggedIn, (req, res, next) => {
     });
 });
 
-// GET render "profile/favourite-list.hbs" with req.session data, finding User and populate with User.favourite arr
+// GET render "profile/favourite-list.hbs" with req.session data, finding User and path-populate in User.favourite.owner 
 router.get("/favourites", isLoggedIn, async (req, res, next) => {
   const foundUser = req.session.userOnline;
   try {
-    let response = await User.findById(foundUser._id).populate("favourite");
+    let response = await User.findById(foundUser._id)
+    .populate({path:'favourite',populate:{path:'owner'}});
     res.render("profile/favourite-list.hbs", {
       favouriteList: response.favourite,
     });

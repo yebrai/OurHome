@@ -15,16 +15,6 @@ const propertySchema = new Schema(
       trim: true,
       required: true,
     },
-    apartmentFor: {
-      type: String,
-      enum: ["sale", "rent"],
-      default: "sale",
-    },
-    style: {
-      type: String,
-      enum: ['garaje', 'chalet', 'apart'],
-      default: "apart",
-    },
     amenities: [String],
     owner: {
         type: Schema.Types.ObjectId,

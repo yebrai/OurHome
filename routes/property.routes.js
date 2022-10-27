@@ -48,8 +48,6 @@ router.post("/create", isLoggedIn, cloudinary.single("property-img"), async (req
       name,
       location,
       m2,
-      apartmentFor,
-      style,
       price,
       professional,
     } = req.body;
@@ -74,8 +72,6 @@ router.post("/create", isLoggedIn, cloudinary.single("property-img"), async (req
         location,
         m2,
         img: req.file?.path,
-        apartmentFor,
-        style,
         owner: req.session.userOnline._id,
         amenities: amenitiesArr,
         price,
@@ -83,7 +79,7 @@ router.post("/create", isLoggedIn, cloudinary.single("property-img"), async (req
       };
      
 
-     let newHouse = await Property.create(newProperty);
+      await Property.create(newProperty);
       res.redirect("/property/list");
 
     } catch (error) {
@@ -147,8 +143,6 @@ router.post("/edit/:propertyId", isLoggedIn,  cloudinary.single("img"), (req, re
     name,
     location,
     m2,
-    apartmentFor,
-    style,
     owner,
     amenities,
     price,
@@ -159,8 +153,6 @@ router.post("/edit/:propertyId", isLoggedIn,  cloudinary.single("img"), (req, re
     location,
     m2,
     img: req.file?.path,
-    apartmentFor,
-    style,
     owner,
     amenities,
     price,

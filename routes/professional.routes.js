@@ -3,6 +3,7 @@ const { isLoggedIn, isAdmin, isProfessional } = require("../middlewares/auth");
 const Professional = require("../models/Professional.model.js");
 const Property = require("../models/Property.model");
 const cloudinary = require("../middlewares/cloudinary.js");
+const User = require("../models/User.model");
 
 // "/professional/:routes"
 // GET render professional/list.hbs with Property.find() method in listProperties variable
@@ -102,8 +103,9 @@ router.get("/promote", isProfessional, async (req, res, next) => {
   try {
     let response = await Professional.findById(
       req.session.professionalOnline._id
-    ).populate("properties");
-    res.render("professional/promote-list.hbs", {
+      ).populate({path:'properties',populate:{path:'owner'}});
+      console.log(response);
+      res.render("professional/promote-list.hbs", {
       favouriteList: response.properties,
     });
   } catch (error) {
