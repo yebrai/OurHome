@@ -18,7 +18,6 @@ router.get("/list", async (req, res, next) => {
   }
 });
 
-
 // POST use data from "index.hbs" for find Property with filter
 router.post("/list/location", async (req, res, next) => {
   try {
