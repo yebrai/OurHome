@@ -1,11 +1,14 @@
 <div>
     <h2>List of all professionals</h2>
+</div>
+
+<div class="background-list-professional">
+  <div class="container mx-auto mt-4 ">
+    <div class="row">
     {{#each professionalList}}
-    {{!-- <li>Professional name: {{name}} Email: {{email}} Phone:{{phone}}</li> --}}
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-      <div class="col">
-        <div class="card">
-          <img src="{{img}}" alt="img-profile-user" width="150px"/>
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <img src="{{this.img}}" class="card-img-top" alt="img-property" />
           <div class="card-body">
             <h5 class="card-title">Name: {{name}}.</h5>
             <p class="card-text">Cif: {{cif}}.</p>
@@ -13,7 +16,45 @@
             <p class="card-text">Phone: {{phone}}.</p>
           </div>
         </div>
-      </div>
-    </div>
+      </div>    
     {{/each}}
+    </div>
+  </div>
 </div>
+
+<style>
+
+.background-list {
+  background-color: #e7f5ff;
+  text-align: center;
+  margin: 0 auto;
+  padding: 30px 0 0 100px;
+  border-radius: 10px;
+  width: 80%;
+}
+
+.card-body{
+  background-color: aliceblue ;
+  border-radius: 10px;
+
+}
+.card {
+  border: 1px solid black;
+
+  margin-bottom: 30px;
+}
+.card img{
+  border-radius: 5px;
+  height: 220px;
+  width: 285px;
+}
+.background-list-professional {
+  background-color: #e7f5ff;
+  text-align: center;
+  margin: 0 auto;
+  padding: 30px 0 0 40px;
+  border-radius: 10px;
+  width: 80%;
+}
+
+</style>
