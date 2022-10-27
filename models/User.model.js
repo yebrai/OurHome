@@ -39,7 +39,6 @@ const userSchema = new Schema(
       enum: ["user", "admin", "moderators"],
       default: "user"
     },
-    // properties:[{}],
     favourite:[
       {
         type: Schema.Types.ObjectId,
