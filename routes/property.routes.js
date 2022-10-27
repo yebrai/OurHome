@@ -4,9 +4,8 @@ const User = require("../models/User.model");
 const Property = require("../models/Property.model");
 const cloudinary = require("../middlewares/cloudinary.js");
 
-// "/property/:routes"
 
-// GET render "property/list.hbs" with Property sorted
+// GET '/list' render "property/list.hbs" with Property sorted
 router.get("/list", async (req, res, next) => {
   try {
     let listProperties = await Property.find().populate("owner").sort({createdAt: -1})
@@ -19,7 +18,7 @@ router.get("/list", async (req, res, next) => {
 });
 
 
-// POST use data from "index.hbs" for find Property with filter
+// POST /list/location use data from "index.hbs" for find Property with filter
 router.post("/list/location", async (req, res, next) => {
   try {
     let listProperties = await Property.find( {location: {$in: req.body.location } } )
@@ -31,12 +30,13 @@ router.post("/list/location", async (req, res, next) => {
   }
 });
 
-
+// GET /property/create use user-data in "house-create.hbs" => owner
 router.get("/create", isLoggedIn, async (req, res, next) => {
   try {
-    // antes de renderizar, voy a buscar todos los autores de la BD
-    const userList = await User.findById(req.session.userOnline);
-    res.render("property/house-create.hbs", {userList});
+    const userList = await User.findById(req.session.userOnline._id);
+    res.render("property/house-create.hbs", 
+    {userList}
+    );
   } catch (error) {
     next(error);
   }
@@ -50,7 +50,6 @@ router.post("/create", isLoggedIn, cloudinary.single("property-img"), async (req
       m2,
       apartmentFor,
       style,
-      amenities,
       price,
       professional,
     } = req.body;
@@ -119,7 +118,7 @@ router.get("/details/:propertyId", (req, res, next) => {
     });
 });
 
-// GET '/property/edit/:propertyId'
+// GET '/property/edit/:propertyId' - render property-edit
 router.get("/edit/:propertyId", isLoggedIn, (req, res, next) => {
   let { propertyId } = req.params;
 
@@ -141,20 +140,18 @@ router.get("/edit/:propertyId", isLoggedIn, (req, res, next) => {
     });
 });
 
-// POST '/property/edit/:propertyId'
+// POST '/property/edit/:propertyId' - update property data
 router.post("/edit/:propertyId", isLoggedIn,  cloudinary.single("img"), (req, res, next) => {
   let { propertyId } = req.params;
   const {
     name,
     location,
     m2,
-    img,
     apartmentFor,
     style,
     owner,
     amenities,
     price,
-    professional,
   } = req.body;
 
   const propertyUpdate = {
@@ -167,7 +164,6 @@ router.post("/edit/:propertyId", isLoggedIn,  cloudinary.single("img"), (req, re
     owner,
     amenities,
     price,
-    // professional,
   };
 
   Property.findByIdAndUpdate(propertyId, propertyUpdate)
@@ -179,7 +175,7 @@ router.post("/edit/:propertyId", isLoggedIn,  cloudinary.single("img"), (req, re
     });
 });
 
-// POST '/property/delete/:propertyId'
+// POST '/property/delete/:propertyId' - delete property
 router.post("/delete/:propertyId", isLoggedIn, async (req, res, next) => {
   let foundUser = req.session.userOnline
   try {
