@@ -1,37 +1,33 @@
 <section id="index-section">
   <h1>OurHome</h1>
 </section>
-<section id="index-input-container">
+<section class="index-input-container">
   <div class="searchers-index">
-    <label for="">Search your Home </label>
-    <a href="/property/list">🔍 Property</a>
+
+    <a href="/property/list"><button class="btn btn-primary">Properties</button></a>
   </div>
   <div class="searchers-index">
-    <form action="/property/list/location" method="post">
-    <label for="location">Search by location</label>
-    <input type="text" placeholder="🔍 Location" name="location"/>
-    <button>Search</button>
+    <form action="/property/list/location" method="post" class="form-index">
+    <input type="text" placeholder="🔍 Search by location" name="location"/>
+    <button class="btn btn-primary">Search</button>
     </form>
   </div>
   <div class="searchers-index">
-    <label for="">Search professionals</label>
-    <input type="text" placeholder="🔍 Proffesionals" />
-    <a href="/professional/listedProfessionals">All professionals</a>
+
+    <a href="/professional/listedProfessionals"><button class="btn btn-primary">All professionals</button> </a>
   </div>
 </section>
     {{> footer}}
-{{!-- <footer id="index-footer">
-  <div>
-    <img src="" alt="" />
-    <ul>
-      <li>© Copyright 2022</li>
-    </ul>
-  </div>
-  <div id="container-developers">
-    <h5>Developed by:</h5>
-    <ul>
-      <li><a href="https://www.linkedin.com/in/ivangarciayebra/">Ivan Yebra</a></li>
-      <li><a href="">Ignacio</a></li>
-    </ul>
-  </div>
-</footer> --}}
+
+<style>
+  .index-input-container div .form-index{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.form-index {
+  padding: 0;
+}
+</style>

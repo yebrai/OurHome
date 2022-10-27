@@ -48,7 +48,7 @@ html {
   padding: 100px 0 0 100px;
 }
 
-#index-input-container {
+.index-input-container {
   background-color: var(--backgroud-blue);
   height: 10vh;
   display: flex;
@@ -63,11 +63,6 @@ html {
   width: 50vh;
   display: flex;
   align-items: center;
-}
-
-.searchers-index {
-  display: flex;
-  flex-direction: column;
 }
 
 #index-footer {
