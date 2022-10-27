@@ -1,4 +1,4 @@
-<div>
+<section class="container-edit-profile">
 
   <h2>Edit your user profile</h2>
   {{#with details}}
@@ -32,19 +32,31 @@
           name="img"
           id="formFile"/>
       </div>
-      <div class="mb-3">
-        <label for="createdAt" class="form-label">User created:</label>
-        <input type="text" name="createdAt" class="form-control" value="{{createdAt}}" readonly/>
-      </div>
-
- 
       <br />
+      <div class="edit-button-container">
       <p>{{response}}</p>
-
-      <button type="submit">Update</button>
-
+      <button type="submit" class="btn btn-primary">Update</button>
     </form>
-    <form action="/profile/delete/{{_id}}" method="post"><button>Delete</button></form>
+    <form action="/profile/delete/{{_id}}"method="post" ><button class="btn btn-danger delete-user-edit">Delete</button></form>
+    </div>
   {{/with}}
-
-</div>
+</section>
+    {{> footer}}
+<style>
+  .container-edit-profile {
+    width: 30%;
+    height: 85vh;
+    margin: 20px auto;
+    border: 1px solid;
+    padding: 20px;
+    background-color: e7f5ff;
+    border-radius: 5px;
+  }
+  .edit-button-container {
+    display: flex;
+    height: 38px;
+  }
+  .delete-user-edit{
+    margin-left: 20%;
+  }
+</style>
