@@ -1,14 +1,27 @@
-<div class="admin-user-list-background">
-<div class="admin-user-list-container">
+
   <h1>User list</h1>
-  {{#each usersList}}
 
-    <h5> {{this.name}}</h5>
-    <img src="{{this.img}}" alt="img-property" width="100px" />
-    <form action="/admin/user/{{_id}}/delete" method="POST">
-      <button> Delete</button>
-    </form>
+<div class="background-list-professional">
+  <div class="container mx-auto mt-4 ">
+    <div class="row">
+    {{#each usersList}}
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <img src="{{this.img}}" class="card-img-top" alt="img-property" />
+          <div class="card-body">
+            <h5 class="card-title">Name: {{name}}.</h5>
+            <p class="card-text">Surname: {{surname}}.</p>
+            <p class="card-text">E-mail: {{email}}.</p>
+            <p class="card-text">Phone: {{phone}}.</p>
+            
+               <form action="/admin/user/{{_id}}/delete" method="POST">
 
-  {{/each}}
-</div>
+              <button  class="btn btn-outline-danger"> Delete</button>
+            </form>
+          </div>
+        </div>
+      </div>    
+    {{/each}}
+    </div>
+  </div>
 </div>
