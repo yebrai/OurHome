@@ -6,7 +6,7 @@
   </nav>
 {{/if}}
   <h1>List of houses</h1>
-
+<div class="list-main-container">
   {{#each listProperties}}
 
     <div class="row row-cols-1 row-cols-md-2 g-4" class="list-container-main">
@@ -18,8 +18,6 @@
             <p class="card-text">Location: {{this.location}}.</p>
             <p class="card-text">Price: $ {{this.price}}.-</p>
             <p class="card-text">Property for sale.</p>
-        
-
             <div class="button-container-list">
               <a href="/property/details/{{this._id}}" class="btn btn-outline-info">More details!</a>
               <form action="/profile/favourites/{{this._id}}" method="post">
@@ -33,8 +31,6 @@
       </div>
     </div>
   {{/each}}
-   {{!-- {{#if isUserActive}}
-              <form action="/profile/favourites/{{this._id}}" method="post">
-                <button class="btn btn-primary"> Add favourite</button> </form>
-              {{/if}} --}}
+  </div>
 </div>
+

@@ -13,7 +13,7 @@ html {
 
 }
 
-#nav-home {
+.nav-home {
   display: flex;
   justify-content: space-between;
   background-color: var(--background-softblue);
@@ -27,13 +27,6 @@ html {
   display: flex;
 }
 
-#nav-home a {
-  text-decoration: none;
-  color: black;
-  margin: 10px 25px 10px 25px;
-
-}
-
 /* index */
 #index-section {
   background-image: url('/images/index-background2.jpg');
@@ -42,10 +35,17 @@ html {
   height: 78vh;
 }
 
+.nav-home a {
+  text-decoration: none;
+  color: black;
+  margin: 10px 25px 10px 25px;
+  font-size: 1.2rem;
+}
+
 #index-section h1{
   color: var(--background-softblue);
   font-size: 5rem;
-  padding: 100px 0 0 100px;
+  padding: 8% 0 0 8%;
 }
 
 .index-input-container {
@@ -57,6 +57,7 @@ html {
   align-items: center;
   flex-wrap: wrap;
   color: var(--background-softblue);
+  
 }
 
 #signup-type-user {
@@ -91,6 +92,29 @@ html {
   justify-content: flex-start;
   align-items: center;
 
+}
+.index-input-container div .form-index{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.searchers-index-input {
+display: flex;
+margin-top: 20px;
+}
+
+.input-index{
+padding: 7px;
+border: none;
+border-radius: 4px;
+background-color: #e7f5ff;
+
+}
+
+.searchers-index-input button {
+margin-bottom: 4px;
 }
 
 /* list */
@@ -203,4 +227,36 @@ html {
 }
 .delete-user-edit{
   margin-left: 20%;
+}
+
+/*admin */
+.main-body-admin{
+  background-color: #e7f5ff;
+  height: 60%;
+  width: 50%;
+  margin: 10vh auto;
+  text-align: center;
+  border: 1px solid;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.nav-list-container-admin{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 7vh;
+  font-size: 1.5rem;
+  border: 1px solid;
+  height: 70%;
+  background-color: aliceblue;
+  border-radius: 10px;
+}
+
+.nav-list-container-admin a{
+  color: black;
+  text-decoration: none;
+}
+.nav-list-container-admin a:hover{
+ font-size: 2rem;
 }
