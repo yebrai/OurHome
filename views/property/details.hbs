@@ -1,41 +1,41 @@
-<h3>detalles de viviendas</h3>
+<div class="main-details-background-container">
+  <section class="main-details-background">
 
-  {{#with details}}
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-      <div class="col">
-        <div class="card">
-          <img src="{{img}}" class="card-img-top" alt="img-property" />
-          <div class="card-body">
-            <h5 class="card-title">{{name}}</h5>
-            <p class="card-text">Location: {{location}}.</p>
-            <p class="card-text">Dimensions: {{m2}}m².</p>
-            <p class="card-text">Price: $ {{price}}.-</p>
-            <p class="card-text">Amenities: 
-                {{#each amenities}}
-                    <li class="card-text">{{this}}.</li>
-                {{/each}}
-            </p>
-            <p class="card-text">Posted: {{../created}}.</p>
-            <p class="card-text">Updated: {{../updated}}.</p>
+      {{#with details}}
 
+      <div class="main-details-info main-details-info-property">
+      <img src="{{img}}" alt="img-property" />
+      <div>
+        <h5>{{name}}</h5>
+        <p>Location: {{location}}.</p>
+        <p>Dimensions: {{m2}}m².</p>
+        <p>Price: $ {{price}}.-</p>
+        <p>Amenities: 
+            {{#each amenities}}
+                <li>{{this}}.</li>
+            {{/each}}
+        </p>
+        <p>Posted: {{../created}}.</p>
+        <p>Updated: {{../updated}}.</p>
+        <p>Owner: <b>{{owner.surname}} {{owner.name}}.</b></p>
+       <div>
+          <div class="buttons-details-properties">
+          {{/with}}
+          {{#if sameOwner}}
+          <a href="/property/edit/{{details._id}}" class="btn btn-outline-info">Edit</a>
+          {{/if}}
 
-            <p class="card-text">Owner: <b>{{owner.surname}} {{owner.name}}.</b></p>
-            <div>
-  {{/with}}
-                {{#if sameOwner}}
-              <a href="/property/edit/{{details._id}}" class="btn btn-outline-info">Edit</a>
-                  {{/if}}
-
-               <form action="/profile/favourites/{{details._id}}" method="post">
-              {{#if isUserActive}}
-                <button class="btn btn-primary"> Add favourite</button> 
-              {{/if}}
-                </form>
-            </div>
+          <form action="/profile/favourites/{{details._id}}" method="post">
+          {{#if isUserActive}}
+            <button class="btn btn-primary"> Add favourite</button> 
+          {{/if}}
+          </form>
           </div>
         </div>
       </div>
     </div>
+  </section>
+</div>
 
 <style>
   .main-property-details{

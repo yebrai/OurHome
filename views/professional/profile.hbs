@@ -1,17 +1,18 @@
-<section class="main-container-profile">
+<div class="main-details-background-container">
+  <section class="main-details-background">
     {{#with details}}
-      <div class="container-profile">
+      <div class="main-details-info">
             <img src="{{img}}" alt="img-profile-user" width="150px" />
-            <div class="card-body">
+            <div>
               <br>
-              <h3>Profile:</h3>
-              <h5 class="card-title">Name: {{name}}.</h5>
-              <p class="card-text">Cif: {{cif}}.</p>
-              <p class="card-text">E-mail: {{email}}</p>
-              <p class="card-text">Phone: {{phone}}.</p>
-              <a href="/professional/edit/{{_id}}" class="btn btn-outline-info" >Edit</a>
+              <h5>Name: {{name}}.</h5>
+              <p>Cif: {{cif}}.</p>
+              <p>E-mail: {{email}}</p>
+              <p>Phone: {{phone}}.</p>
+              <a href="/professional/edit/{{_id}}"><button class="btn btn-primary">Edit</button></a>
             </div>
         </div>
     {{/with}}
-</section>
+  </section>
+</div>
     {{> footer}}
