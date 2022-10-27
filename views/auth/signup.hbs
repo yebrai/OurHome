@@ -4,39 +4,36 @@
     <h2>Signup </h2>
 
   <form action="/auth/signup" method="POST" class="form-login-container">
-
+  <div class="label-input-auth">
     <label for="name">Name:</label>
     <input type="text" name="name" />
-    
     <select name="links" size="1" onchange="window.location.href=this.value">
         <option value="/auth/signup">Individual</option>
         <option value="/auth-professional/signup">Professional</option>
     </select>
-    <br>
-
+</div>
+  <div class="label-input-auth">
     <label for="surname">Surname:</label>
     <input type="text" name="surname" />
-
-    <br />
+    </div>
+  <div class="label-input-auth">
     <label for="email">Email:</label>
     <input type="text" name="email" />
-
-    <br />
+    </div>
+  <div class="label-input-auth">
     <label for="phone">Phone:</label>
     <input type="number" name="phone" />
-
-    <br />
+    </div>
+  <div class="label-input-auth">
     <label for="password">Password:</label>
     <input type="password" name="password" />
-
-    <br />
+    </div>
+  <div class="label-input-auth">
     <label for="passwordConfirmation">Confirm Password:</label>
     <input type="password" name="passwordConfirmation" />
-    <br>
+    </div>
 
-
-    <br>
-    <p>{{errorMessage}}</p>
+    <p style="color: red">{{errorMessage}}</p>
 
     <button class="log-form-button">Register</button>
   </form>

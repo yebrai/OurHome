@@ -3,42 +3,37 @@
   <div class="login-card">
 
     <h2>Signup Professional</h2>
-
     <form action="/auth-professional/signup" method="POST" class="form-login-container">
-
+   <div class="label-input-auth">
       <label for="name">Name:</label>
       <input type="text" name="name" />
-
       <select name="links" size="1" onchange="window.location.href=this.value">
         <option value="/auth-professional/signup">Professional</option>
         <option value="/auth/signup">Individual</option>
       </select>
-
-      <br />
-
+     </div>
+    <div class="label-input-auth">
       <label for="cif">Cif:</label>
       <input type="text" name="cif" />
-
-      <br />
+      </div>
+    <div class="label-input-auth">
       <label for="email">Email:</label>
       <input type="email" name="email" />
-
-      <br />
+      </div>
+    <div class="label-input-auth">
       <label for="phone">Phone:</label>
       <input type="number" name="phone" />
-
-      <br />
+      </div>
+    <div class="label-input-auth">
       <label for="password">Password:</label>
       <input type="password" name="password" />
-
-      <br />
+      </div>
+    <div class="label-input-auth">
       <label for="passwordConfirmation">Confirm Password:</label>
       <input type="password" name="passwordConfirmation" />
-      <br />
+    </div>
 
-
-      <br />
-      <p>{{errorMessage}}</p>
+      <p style="color: red">{{errorMessage}}</p>
 
       <button class="log-form-button">Register</button>
     </form>

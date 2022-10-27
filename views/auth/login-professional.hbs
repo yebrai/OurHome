@@ -3,17 +3,19 @@
   <div class="login-card">
   <h3>Professional login</h3>
   <form action="/auth-professional/login" method="POST" class="form-login-container">
+  <div class="label-input-auth">
     <label for="cif">CIF:</label>
     <input type="text" name="cif" />
     <select name="links" size="1" onchange="window.location.href=this.value">
       <option value="/auth-professional/login">Professional</option>
       <option value="/auth/login">Particular</option>
     </select>
-    <br />
+    </div>
+      <div class="label-input-auth">
     <label for="password">Password:</label>
     <input type="password" name="password" />
-    <br />
-    <p>{{errorMessage}}</p>
+    </div>
+    <p style="color: red">{{errorMessage}}</p>
     <button class="log-form-button">Submit</button>
 
   </form>

@@ -10,6 +10,7 @@ html {
   font-family: 'Open Sans','Open Sans-fallback',sans-serif;
   box-sizing: border-box;
   background-color: var(--background-softblue);
+  font-size: 14px;
 
 }
 
@@ -165,13 +166,14 @@ margin-bottom: 4px;
   display: flex;
   flex-direction: column;
   border: 5px;
+  gap: 20px;
   
 }
 
 .login-card {
   border: var(--soft-blue) 4px solid;
   width: 40vh;
-  padding: 5vh;
+  padding: 2vh;
   background-color: white;
   border-radius: 15px;
   background-color: var(--background-softblue);
@@ -227,6 +229,12 @@ margin-bottom: 4px;
 }
 .delete-user-edit{
   margin-left: 20%;
+  height: 38px
+}
+
+.label-input-auth {
+  display: flex;
+  flex-direction: column;
 }
 
 /*admin */
@@ -260,3 +268,4 @@ margin-bottom: 4px;
 .nav-list-container-admin a:hover{
  font-size: 2rem;
 }
+
