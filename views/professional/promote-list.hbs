@@ -1,4 +1,4 @@
-<h3>Promotions!</h3>
+
 
 <div class="background-list">
   <div class="container mx-auto mt-4 ">
@@ -15,7 +15,7 @@
                <p class="card-text">Owner:
               <b>{{owner.surname}} {{owner.name}}</b></p>
               <form action="/professional/promote/{{_id}}/delete" method="POST">
-               <button class="btn btn-primary">Delete</button>
+               <button class="btn btn-primary">Remove promoted</button>
                </form>
           </div>
         </div>
@@ -24,3 +24,4 @@
     </div>
   </div>
 </div>
+    {{> footer}}

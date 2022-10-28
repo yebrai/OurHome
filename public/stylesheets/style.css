@@ -349,8 +349,9 @@ margin-bottom: 4px;
 
       .main-details-info-property {
         height: 70vh;
-        width: 40vh;
+        width: 50vh;
       }
+
       .buttons-details-properties {
         display: flex;
         flex-direction: row;

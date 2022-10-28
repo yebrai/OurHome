@@ -4,20 +4,21 @@
       {{#with details}}
 
       <div class="main-details-info main-details-info-property">
-      <img src="{{img}}" alt="img-property" />
+      <img src="{{img}}" alt="img-property" class="property-detail-img"/>
       <div>
         <h5>{{name}}</h5>
-        <p>Location: {{location}}.</p>
-        <p>Dimensions: {{m2}}m².</p>
-        <p>Price: $ {{price}}.-</p>
-        <p>Amenities: 
+        <p><b>Location:</b> {{location}}.</p>
+        <p><b>Dimensions:</b> {{m2}}m².</p>
+        <p><b>Price:</b> $ {{price}}.-</p>
+        <p><b>Amenities: </b>
             {{#each amenities}}
                 <li>{{this}}.</li>
             {{/each}}
         </p>
-        <p>Posted: {{../created}}.</p>
-        <p>Updated: {{../updated}}.</p>
-        <p>Owner: <b>{{owner.surname}} {{owner.name}}.</b></p>
+        <p><b>Posted:</b> {{../created}}.</p>
+        <p><b>Updated:</b> {{../updated}}.</p>
+        <p><b> Owner:</b> {{owner.surname}} {{owner.name}}.</p>
+        <p><b>Phone:</b> {{owner.phone}}</p>
        <div>
           <div class="buttons-details-properties">
           {{/with}}
@@ -36,9 +37,5 @@
     </div>
   </section>
 </div>
+    {{> footer}}
 
-<style>
-  .main-property-details{
-    
-  }
-</style>
