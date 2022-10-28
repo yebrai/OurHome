@@ -18,9 +18,7 @@ Made in:
 
 ## ✨ About Us ✨
 
-> Hi! my name is [Ignacio Moni] , and I'm learning JavaScript language. I enjoy teamworking while learning new features!
-
-> My name is [Ivan Yebra], I am learning web programming and this project seems interesting to me to relate what I learned about programming and what I previously studied about investments.
+> Hi! we are [Ignacio Moni] and [Ivan Yebra], and we're learning JavaScript language. we're enjoy teamworking while learning new features!
 
 ## Description
 
@@ -93,10 +91,10 @@ Is a basic app builted in JavaScript, Handlebars and Express. You will see a pre
 | -                 | -                           | house-create.hbs        |
 | -                 | -                           | list.hbs                |
 | -                 | auth                        | -                       |
-| -                 | error.hbs                   | -                       |
-| -                 | index.hbs                   | -                       |
-| -                 | layout.hbs                  | -                       |
-| -                 | not-found.hbs               | -                       |
+| -                 | -                           | error.hbs               |
+| -                 | -                           | index.hbs               |
+| -                 | -                           | layout.hbs              |
+| -                 | -                           | not-found.hbs           |
 | .env              | -                           | -                       |
 | .gitignore        | -                           | -                       |
 | app.js            | -                           | -                       |
