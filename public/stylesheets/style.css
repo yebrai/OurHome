@@ -312,7 +312,7 @@ html {
 }
 /* details */
 .main-details-background-container {
-  height: 88%;
+  height: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -320,7 +320,7 @@ html {
 .main-details-background {
   background-color: #e7f5ff;
   width: 80vh;
-  height: 80vh;
+  height: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -344,7 +344,7 @@ html {
 }
 
 .main-details-info-property {
-  height: 90%;
+  height: 100%;
   width: 50%;
 }
 
