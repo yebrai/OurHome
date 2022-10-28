@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs");
 // "/auth/:routes"
 
 router.get("/signup", (req, res, next) => {
-  res.render("auth/sign");
+  res.render("auth/sign.hbs");
 });
 
 // POST get all data from auth/signup.hbs form
