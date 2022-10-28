@@ -4,7 +4,7 @@
 
 [![OurHome](./public/images/index-background.jpg)](https://ourhome.cyclic.app/)
 
-A basic app where you can sale....
+In Our Home you can always contact our specialists and they will be happy to answer all your questions concerning buying a property for living or investment.
 
 Made in:
 
@@ -18,7 +18,7 @@ Made in:
 
 ## ✨ About Us ✨
 
-> [Ignacio Moni] , I'm Pmmm and I'm learning JavaScript language. I enjoy teamworking while learning new features! As [John Gruber] writes on the [Markdown site][df1]
+> Hi! my name is [Ignacio Moni] , and I'm learning JavaScript language. I enjoy teamworking while learning new features!
 
 > My name is [Ivan Yebra], I am learning web programming and this project seems interesting to me to relate what I learned about programming and what I previously studied about investments.
 
